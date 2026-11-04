@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" width="220" height="70">
+  <g transform="translate(15, 12)">
+    <!-- Botanical Leaf Monogram -->
+    <g transform="translate(0, 4)">
+      <circle cx="14" cy="14" r="14" fill="#00152C" opacity="0.08"/>
+      <path d="M14,2 C14,2 22,8 20,17 C18,25 10,28 6,27 C3,26 1,22 2,19 C4,10 14,2 14,2 Z" fill="#00152C" opacity="0.9"/>
+      <path d="M7,25 C10,19 14,12 16,6" stroke="#EF6B51" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      <circle cx="16" cy="6" r="1.4" fill="#EF6B51"/>
+    </g>
+    <!-- Text -->
+    <text x="36" y="21" fill="#00152C" font-family="'Encode Sans Expanded', 'Playfair Display', Georgia, serif" font-size="16.5" font-weight="700" letter-spacing="2px">NOVADERMA</text>
+    <text x="37" y="34" fill="#EF6B51" font-family="'Manrope', -apple-system, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.8px">CLÍNICA DERMATOLÓGICA</text>
+    <text x="37" y="44" fill="#718096" font-family="'Manrope', -apple-system, sans-serif" font-size="7.5" font-weight="500">Dr. André &amp; Dra. Aline Duarte</text>
+  </g>
+</svg>
+

@@ -1,0 +1,11 @@
+# Ignore python scripts and local temporary files
+*.py
+INICIAR_LOCAL.bat
+servidor_local.py
+screenshot_*.png
+test_screenshot.png
+slice_*.png
+shot.png
+raw_original.html
+.vscode/
+.idea/

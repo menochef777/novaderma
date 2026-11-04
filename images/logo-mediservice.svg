@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" width="220" height="70">
+  <g transform="translate(15, 12)">
+    <!-- Mediservice Emblem -->
+    <g transform="translate(2, 6)">
+      <circle cx="14" cy="14" r="14" fill="#008080" opacity="0.14"/>
+      <path d="M11,4 L17,4 L17,11 L24,11 L24,17 L17,17 L17,24 L11,24 L11,17 L4,17 L4,11 L11,11 Z" fill="#008080"/>
+      <circle cx="14" cy="14" r="3" fill="#FFFFFF"/>
+    </g>
+    <!-- Text -->
+    <text x="40" y="22" fill="#008080" font-family="'Manrope', -apple-system, sans-serif" font-size="18" font-weight="800" letter-spacing="-0.2px">mediservice</text>
+    <text x="41" y="34" fill="#00152C" font-family="'Manrope', -apple-system, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.5px">PLANO DE SAÚDE</text>
+    <text x="41" y="44" fill="#718096" font-family="'Manrope', -apple-system, sans-serif" font-size="7.5" font-weight="500">Beneficiários Credenciados</text>
+  </g>
+</svg>

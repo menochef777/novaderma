@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 73" width="145" height="73">
+  <defs>
+    <style>
+      .brand-title {
+        font-family: 'Encode Sans Expanded', 'Playfair Display', 'Cinzel', Georgia, serif;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        fill: #FFFFFF;
+        text-anchor: middle;
+      }
+      .brand-sub {
+        font-family: 'Manrope', -apple-system, sans-serif;
+        font-size: 5.8px;
+        font-weight: 600;
+        letter-spacing: 2.4px;
+        fill: #EF6B51;
+        text-anchor: middle;
+        text-transform: uppercase;
+      }
+      .leaf-spark {
+        fill: #EF6B51;
+      }
+    </style>
+  </defs>
+  <g transform="translate(72.5, 34)">
+    <!-- Botanical Monogram Icon Subtle Center -->
+    <path class="leaf-spark" d="M0,-14 C2,-17 7,-18 9,-15 C10,-13 9,-9 6,-8 C4,-7 1,-9 0,-14 Z" opacity="0.95"/>
+    <path d="M2,-12 C4,-10 6,-11 6,-11" stroke="#FFE2D8" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <!-- Main Typography -->
+    <text x="0" y="3" class="brand-title">NOVADERMA</text>
+    <!-- Subtitle Line -->
+    <text x="0" y="14" class="brand-sub">CLÍNICA DERMATOLÓGICA</text>
+  </g>
+</svg>
