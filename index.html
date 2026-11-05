@@ -2304,7 +2304,12 @@ body {
 <!-- ==========================================================================
      SEÇÃO ESPECIALISTAS: ARQUITETURA KOLLEKTIVA (2 DOUTORES - PROMPT & REF IMAGEM 1)
      ========================================================================== -->
-<section id="especialistas" class="kollektiva-hero-scope" style="position: relative; height: 100vh; min-height: 640px; max-height: 1080px; width: 100%; overflow: hidden; font-family: 'Geist', 'Manrope', -apple-system, sans-serif; color: #ffffff; background-color: #0b1320;">
+<!-- ==========================================================================
+     SEÇÃO ESPECIALISTAS: ARQUITETURA KOLLEKTIVA APRIMORADA (PROMPT & REF)
+     Autoplay: 4s | Pausa ao clicar | Retorno automático: 10s
+     Tipografia Geist Clean | Dr. André (1º) e Dra. Aline (2ª)
+     ========================================================================== -->
+<section id="especialistas" class="kollektiva-hero-scope" style="position: relative; height: 100vh; min-height: 620px; max-height: 1080px; width: 100%; overflow: hidden; font-family: 'Geist', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important; color: #ffffff; background-color: #0b1320;">
   
   <style>
     @keyframes kollektivaFadeIn {
@@ -2318,8 +2323,13 @@ body {
       position: absolute;
       inset: 0;
       background-size: cover;
-      background-position: center;
+      background-position: center top;
       transition: opacity 700ms ease-out;
+    }
+    @media (min-width: 992px) {
+      .kollektiva-bg-layer {
+        background-position: center;
+      }
     }
     .kollektiva-avatar-btn {
       background: none;
@@ -2329,12 +2339,12 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       outline: none;
-      transition: transform 0.2s ease;
+      transition: transform 0.25s ease;
     }
     .kollektiva-avatar-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
     .kollektiva-avatar-thumb {
       display: block;
@@ -2342,20 +2352,20 @@ body {
       height: 48px;
       border-radius: 50%;
       overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.35);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.35);
     }
     @media (min-width: 640px) {
       .kollektiva-avatar-thumb {
-        width: 60px;
-        height: 60px;
+        width: 58px;
+        height: 58px;
       }
     }
     .kollektiva-avatar-btn.active .kollektiva-avatar-thumb {
       border-color: #ffffff;
-      transform: scale(1.06);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+      transform: scale(1.08);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.25), 0 8px 25px rgba(0,0,0,0.5);
     }
     .kollektiva-dot {
       width: 4px;
@@ -2375,59 +2385,62 @@ body {
       width: 100%;
       max-width: 1540px;
       margin: 0 auto;
-      padding: 40px 24px 30px 24px;
+      padding: 38px 24px 28px 24px;
     }
     @media (min-width: 640px) {
       .kollektiva-content-wrap {
-        padding: 56px 40px 36px 40px;
+        padding: 54px 40px 34px 40px;
       }
     }
     @media (min-width: 1024px) {
       .kollektiva-content-wrap {
-        padding: 70px 64px 44px 64px;
+        padding: 68px 64px 40px 64px;
       }
     }
     .kollektiva-top-zone {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
     }
     @media (min-width: 768px) {
       .kollektiva-top-zone {
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
-        gap: 48px;
+        gap: 40px;
       }
     }
+    /* TIPOGRAFIA DA ESQUERDA: GEIST CLEAN (DIMINUÍDA & MODERNA) */
     .kollektiva-headline {
-      max-width: 640px;
-      font-size: clamp(28px, 4.4vw, 68px);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.035em;
-      color: #ffffff;
-      margin: 0;
-      font-family: 'Geist', 'Manrope', sans-serif;
+      max-width: 560px !important;
+      font-size: clamp(24px, 3.2vw, 46px) !important;
+      font-weight: 500 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.025em !important;
+      color: #ffffff !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-family: 'Geist', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-style: normal !important;
+      text-transform: none !important;
     }
     .kollektiva-description {
-      max-width: 380px;
-      font-size: 14.5px;
-      font-weight: 400;
-      line-height: 1.65;
-      color: rgba(255, 255, 255, 0.88);
-      margin: 0;
-      font-family: 'Geist', 'Manrope', sans-serif;
+      max-width: 380px !important;
+      font-size: clamp(14px, 1.1vw, 15.5px) !important;
+      font-weight: 400 !important;
+      line-height: 1.68 !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      margin: 0 !important;
+      font-family: 'Geist', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
     }
     @media (min-width: 768px) {
       .kollektiva-description {
-        padding-top: 8px;
-        font-size: 15.5px;
+        padding-top: 6px;
       }
     }
     .kollektiva-footer {
       border-top: 1px solid rgba(255, 255, 255, 0.22);
-      padding-top: 20px;
+      padding-top: 18px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -2435,7 +2448,7 @@ body {
       gap: 16px;
       font-size: 14px;
       font-weight: 500;
-      font-family: 'Geist', 'Manrope', sans-serif;
+      font-family: 'Geist', 'Manrope', -apple-system, sans-serif;
     }
     .kollektiva-role {
       display: none;
@@ -2449,7 +2462,7 @@ body {
     .kollektiva-tenure {
       display: none;
     }
-    @media (min-width: 860px) {
+    @media (min-width: 880px) {
       .kollektiva-tenure {
         display: inline;
         color: rgba(255, 255, 255, 0.7);
@@ -2467,27 +2480,27 @@ body {
     }
   </style>
 
-  <!-- Background 0: Dr. André Toscano (Full-Bleed) -->
-  <div id="kollektiva-bg-0" class="kollektiva-bg-layer" style="background-image: url('images/dr-andre-toscano.jpg'); opacity: 1;"></div>
+  <!-- Background 0: Dr. André Toscano (1º Lugar - Foto Nova Proporcional) -->
+  <div id="kollektiva-bg-0" class="kollektiva-bg-layer" style="background-image: url('images/kollektiva-andre-portrait.jpg'); opacity: 1;"></div>
 
-  <!-- Background 1: Dra. Aline Duarte (Full-Bleed) -->
-  <div id="kollektiva-bg-1" class="kollektiva-bg-layer" style="background-image: url('images/dra-aline-duarte.jpg'); opacity: 0;"></div>
+  <!-- Background 1: Dra. Aline Duarte (2º Lugar - Foto Nova Proporcional) -->
+  <div id="kollektiva-bg-1" class="kollektiva-bg-layer" style="background-image: url('images/kollektiva-aline-portrait.jpg'); opacity: 0;"></div>
 
-  <!-- Gradient Overlay (Vignette Soft para Máximo Contraste de Leitura) -->
-  <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 21, 44, 0.55) 0%, rgba(0, 21, 44, 0.18) 40%, rgba(0, 21, 44, 0.7) 100%); pointer-events: none;"></div>
+  <!-- Gradient Overlay (Vignette Suave para Legibilidade Máxima) -->
+  <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 15, 35, 0.55) 0%, rgba(0, 15, 35, 0.2) 42%, rgba(0, 15, 35, 0.75) 100%); pointer-events: none;"></div>
 
   <!-- Content Layer (z-10) -->
   <div class="kollektiva-content-wrap">
     
     <!-- Top Zone: Headline + Bio -->
     <div class="kollektiva-top-zone">
-      <!-- Left: H1 Estático -->
+      <!-- Left: H1 Limpo, Moderno, Geist Sans-Serif -->
       <h1 class="kollektiva-headline">
         NovaDerma é o talento médico que cuida de você a cada&nbsp;dia
       </h1>
       
       <!-- Right: Descrição Dinâmica -->
-      <div id="kollektiva-desc-container" style="min-height: 90px;">
+      <div id="kollektiva-desc-container" style="min-height: 85px;">
         <p id="kollektiva-desc" class="kollektiva-description kollektiva-fade">
           O Dr. André Toscano une rigor acadêmico e constante atualização científica. Membro titular da SBD, é referência em diagnósticos precisos, cirurgia dermatológica e aplicação de tecnologias padrão ouro com olhar humanizado em João Pessoa.
         </p>
@@ -2495,13 +2508,13 @@ body {
     </div>
 
     <!-- Bottom Zone: Avatar Picker + Meta Footer -->
-    <div style="display: flex; flex-direction: column; gap: 24px; width: 100%;">
+    <div style="display: flex; flex-direction: column; gap: 22px; width: 100%;">
       
       <!-- Avatar Picker Row -->
       <div style="display: flex; align-items: flex-end; gap: 14px;">
         
-        <!-- Avatar 0: Dr. André Toscano -->
-        <button id="kollektiva-btn-0" class="kollektiva-avatar-btn active" aria-label="Ver Dr. André Toscano" onclick="switchKollektivaDoctor(0)">
+        <!-- Avatar 0: Dr. André Toscano (Homem Primeiro) -->
+        <button id="kollektiva-btn-0" class="kollektiva-avatar-btn active" aria-label="Ver Dr. André Toscano" onclick="onKollektivaUserClick(0)">
           <span id="kollektiva-dot-0" class="kollektiva-dot" style="opacity: 1;"></span>
           <span class="kollektiva-avatar-thumb">
             <img src="images/avatar-dr-andre.jpg" alt="Dr. André Toscano" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
@@ -2509,7 +2522,7 @@ body {
         </button>
 
         <!-- Avatar 1: Dra. Aline Duarte -->
-        <button id="kollektiva-btn-1" class="kollektiva-avatar-btn" aria-label="Ver Dra. Aline Duarte" onclick="switchKollektivaDoctor(1)">
+        <button id="kollektiva-btn-1" class="kollektiva-avatar-btn" aria-label="Ver Dra. Aline Duarte" onclick="onKollektivaUserClick(1)">
           <span id="kollektiva-dot-1" class="kollektiva-dot" style="opacity: 0;"></span>
           <span class="kollektiva-avatar-thumb">
             <img src="images/avatar-dra-aline.jpg" alt="Dra. Aline Duarte" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
@@ -2527,7 +2540,7 @@ body {
 
         <!-- 2. Cargo / Especialidade -->
         <div id="kollektiva-role" class="kollektiva-role">
-          Dermatologia Clínica &amp; Cirurgia Cutânea • CRM-PB 9600
+          Dermatologia Clínica &amp; Cirurgia Cutânea • CRM-PB 9600 / RQE: 6006
         </div>
 
         <!-- 3. Tempo / Clínica Estático -->
@@ -2547,28 +2560,31 @@ body {
 
   </div>
 
-  <!-- Reatividade da Seção Kollektiva -->
+  <!-- Reatividade da Seção Kollektiva: Loop 4s + Pausa ao Clicar (10s) -->
   <script>
     (function() {
       var doctors = [
         {
           name: "Dr. André Toscano",
-          role: "Dermatologia Clínica & Cirurgia Cutânea • CRM-PB 9600",
+          role: "Dermatologia Clínica & Cirurgia Cutânea • CRM-PB 9600 / RQE: 6006",
           desc: "O Dr. André Toscano une rigor acadêmico e constante atualização científica. Membro titular da SBD, é referência em diagnósticos precisos, cirurgia dermatológica e aplicação de tecnologias padrão ouro com olhar humanizado em João Pessoa.",
           whatsappMsg: "Olá! Gostaria de agendar uma consulta com o Dr. André Toscano na NovaDerma."
         },
         {
           name: "Dra. Aline Duarte",
-          role: "Dermatologia Clínica & Tricologia • CRM-PB 9608",
+          role: "Dermatologia Clínica & Tricologia • CRM-PB 9608 / RQE: 5139",
           desc: "A Dra. Aline Duarte dedica-se ao cuidado integral da pele, tricologia avançada e rejuvenescimento estético refinado. Membro titular da SBD, destaca-se pela sensibilidade estética e foco constante em resultados harmônicos e naturais.",
           whatsappMsg: "Olá! Gostaria de agendar uma consulta com a Dra. Aline Duarte na NovaDerma."
         }
       ];
 
       var activeIndex = 0;
+      var autoplayTimer = null;
+      var resumeTimer = null;
+      var AUTOPLAY_INTERVAL = 4000; // Troca automaticamente a cada 4 segundos
+      var RESUME_DELAY = 10000;     // Retoma o loop após 10 segundos sem cliques
 
-      window.switchKollektivaDoctor = function(index) {
-        if (index === activeIndex) return;
+      function updateUI(index) {
         activeIndex = index;
 
         // 1. Crossfade de fundos (700ms ease-out)
@@ -2627,10 +2643,50 @@ body {
         if (waLink) {
           waLink.href = "https://wa.me/5583981466894?text=" + encodeURIComponent(doctors[index].whatsappMsg);
         }
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(function() {
+          var nextIndex = (activeIndex + 1) % doctors.length;
+          updateUI(nextIndex);
+        }, AUTOPLAY_INTERVAL);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      // Ao clicar manualmente no botão do avatar:
+      window.onKollektivaUserClick = function(index) {
+        if (index === activeIndex) return;
+
+        // 1. Para imediatamente a transição automática
+        stopAutoplay();
+
+        // 2. Limpa qualquer timer de retomada pendente
+        if (resumeTimer) {
+          clearTimeout(resumeTimer);
+        }
+
+        // 3. Atualiza a tela para o médico clicado
+        updateUI(index);
+
+        // 4. Após 10 segundos sem novas ações, volta a transição automática a cada 4s
+        resumeTimer = setTimeout(function() {
+          startAutoplay();
+        }, RESUME_DELAY);
       };
+
+      // Inicia o loop automático de 4s na carga da página
+      startAutoplay();
     })();
   </script>
 </section>
+
 
 
 <!-- SEÇÃO 3: CONVÊNIOS E REEMBOLSO MÉDICO (LOOP DE LOGOS CONVÊNIOS) -->
