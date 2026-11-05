@@ -2048,8 +2048,11 @@ body {
   <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Agendar Consulta
 </a>
 
+
 <style>
-  /* FIX CRÍTICO NAVBAR: GARANTE QUE A NAVBAR FIQUE SOBREPOSTA AO TOPO DO VÍDEO HERO COM ALTA VISIBILIDADE */
+  /* ==========================================================================
+     NAVBAR SHINO: CENTRALIZADA NO TOPO, SEM QUEBRA DE LINHAS
+     ========================================================================== */
   div[data-global-resource-path*="header.html"] {
     position: absolute !important;
     top: 24px !important;
@@ -2073,8 +2076,188 @@ body {
     background: #00152C !important;
     border-radius: 40px !important;
     box-shadow: 0 10px 30px rgba(0, 15, 35, 0.5) !important;
+    padding: 6px 26px !important;
+  }
+  .header .header__row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  .header .primary-nav {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 18px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .header .primary-nav > li {
+    white-space: nowrap !important;
+  }
+  .header .primary-nav > li > a {
+    white-space: nowrap !important;
+    font-size: 13.5px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+  .header .primary-nav > li > a:hover {
+    color: #a2c4ff !important;
+  }
+  .header .button-nav,
+  .header .button--secondary {
+    white-space: nowrap !important;
+    background-color: #2763cb !important;
+    color: #ffffff !important;
+    padding: 10px 22px !important;
+    border-radius: 30px !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+  }
+
+  /* ==========================================================================
+     STACKING GLASS CARDS (MOTION SYSTEM PARA MOBILE NA SEÇÃO 2)
+     PRESERVA 100% O LAYOUT DE 4 COLUNAS NO DESKTOP QUE O USUÁRIO APROVOU!
+     ========================================================================== */
+  @media screen and (max-width: 768px) {
+    .interactive-cards-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 20px !important;
+      position: relative !important;
+      padding: 10px 14px 40px 14px !important;
+    }
+    .interactive-card {
+      position: sticky !important;
+      width: 100% !important;
+      max-width: 350px !important;
+      height: 400px !important;
+      max-height: 400px !important;
+      aspect-ratio: auto !important;
+      margin: 0 auto !important;
+      border-radius: 24px !important;
+      overflow: hidden !important;
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease !important;
+      box-shadow: 0 12px 35px rgba(0, 10, 25, 0.45), 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+      border: 1px solid rgba(255, 255, 255, 0.22) !important;
+      transform-origin: center top !important;
+    }
+    .interactive-card[data-card-index="0"] { top: 90px !important; z-index: 10 !important; }
+    .interactive-card[data-card-index="1"] { top: 110px !important; z-index: 11 !important; }
+    .interactive-card[data-card-index="2"] { top: 130px !important; z-index: 12 !important; }
+    .interactive-card[data-card-index="3"] { top: 150px !important; z-index: 13 !important; }
+
+    /* Glass reflection shine on top of card */
+    .interactive-card::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 45% !important;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%) !important;
+      pointer-events: none !important;
+      border-radius: 24px 24px 0 0 !important;
+      z-index: 4 !important;
+    }
+
+    /* Top glass hairline shine */
+    .interactive-card::after {
+      content: "" !important;
+      position: absolute !important;
+      top: 8px !important;
+      left: 12px !important;
+      right: 12px !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%) !important;
+      border-radius: 1px !important;
+      pointer-events: none !important;
+      z-index: 5 !important;
+    }
+
+    /* Conteúdo sempre visível no Mobile com CTA chamativo para clique */
+    .interactive-card .card-overlay {
+      opacity: 1 !important;
+      backdrop-filter: blur(8px) saturate(140%) !important;
+      -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
+      background: linear-gradient(180deg, rgba(0, 15, 35, 0.45) 0%, rgba(0, 15, 35, 0.78) 60%, rgba(0, 15, 35, 0.92) 100%) !important;
+    }
+    .interactive-card .card-content {
+      padding: 24px 20px 20px 20px !important;
+      justify-content: space-between !important;
+    }
+    .interactive-card .card-content-wrapper {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      margin-top: 0 !important;
+      width: 100% !important;
+    }
+    .interactive-card .card-icon {
+      margin-bottom: 8px !important;
+    }
+    .interactive-card .card-name {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      background: rgba(255, 255, 255, 0.12) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 30px !important;
+      padding: 6px 18px !important;
+      margin-bottom: 12px !important;
+    }
+    .interactive-card .card-name h4 {
+      color: #ffffff !important;
+      font-size: 16px !important;
+      margin: 0 !important;
+      font-weight: 600 !important;
+    }
+    .interactive-card .card-links {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      align-items: center !important;
+      margin-bottom: 14px !important;
+    }
+    .interactive-card .card-link {
+      font-size: 13px !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      text-decoration: none !important;
+      padding: 2px 0 !important;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.25) !important;
+    }
+    /* Botão CTA tátil no Mobile para estimular o clique */
+    .interactive-card .mobile-card-cta {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      background: #2763cb !important;
+      color: #ffffff !important;
+      border-radius: 25px !important;
+      padding: 9px 22px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 15px rgba(39, 99, 203, 0.4) !important;
+      transition: transform 0.2s ease, background-color 0.2s ease !important;
+      width: 80% !important;
+      margin: 0 auto !important;
+    }
+    .interactive-card .mobile-card-cta:active {
+      transform: scale(0.96) !important;
+    }
+  }
+
+  /* No desktop o botão CTA mobile fica oculto para manter o visual limpo aprovado */
+  @media screen and (min-width: 769px) {
+    .interactive-card .mobile-card-cta {
+      display: none !important;
+    }
   }
 </style>
+
 </head>
 <body class="light old-hive-theme">
 
@@ -2164,50 +2347,48 @@ body {
 <div class="row-fluid">
 <div class="span12 widget-span widget-type-custom_widget dnd-module" data-w="12" data-widget-type="custom_widget" data-x="0" style="">
 <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_dnd_area-module-2" style="">
-<div class="dnd_area-module-2__scope cell-section scope home-hero section-layout--right section--dark" id="home-hero" style="position: relative; overflow: hidden; min-height: 90vh; display: flex; align-items: center; background-color: #000c1e;">
-<!-- REMOVE SCOPE__BACKGROUND DA IMAGEM ESTATICA: O FUNDO AGORA É 100% O VIDEO REAL ESTATE TOUR EM LOOP -->
+<div class="dnd_area-module-2__scope cell-section scope home-hero section-layout--right section--dark" id="home-hero" style="position: relative !important; overflow: hidden !important; min-height: 92vh !important; width: 100% !important; display: flex !important; align-items: center !important; background-color: #000c1e !important;">
+<!-- SCOPE__BACKGROUND OCULTO -->
 <div class="scope__background" style="display: none !important;"></div>
 
-<!-- VÍDEO OFICIAL REAL ESTATE TOUR EM LOOP CONTÍNUO (AUTOPLAY TOTAL ANDROID, IOS & DESKTOP) -->
-<div class="scope__video-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1;">
-  <video id="hero-main-video" autoplay loop muted playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: 100%; height: 100%; transform: translate(-50%, -50%); object-fit: cover; z-index: 1; pointer-events: none;">
+<!-- VÍDEO OFICIAL REAL ESTATE TOUR EM LOOP CONTÍNUO (FULL BLEED 100% DA HERO) -->
+<div class="scope__video-bg" style="position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; width: 100% !important; height: 100% !important; transform: none !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; z-index: 0 !important;">
+  <video id="hero-main-video" autoplay loop muted playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" style="position: absolute !important; top: 50% !important; left: 50% !important; min-width: 100% !important; min-height: 100% !important; width: 100% !important; height: 100% !important; transform: translate(-50%, -50%) !important; object-fit: cover !important; z-index: 0 !important; pointer-events: none !important;">
     <source src="videos/hero-video.mp4" type="video/mp4">
     <source src="images/hero-video.mp4" type="video/mp4">
   </video>
 </div>
 
-<!-- SOBREPOSIÇÃO ESCURINHA TRANSLÚCIDA -->
-<div class="scope__overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 15, 35, 0.45) 0%, rgba(0, 15, 35, 0.2) 40%, rgba(0, 15, 35, 0.65) 100%); pointer-events: none; z-index: 1;"></div>
+<!-- SOBREPOSIÇÃO SUAVE TRANSLÚCIDA (PERMITE VER O VÍDEO COMPLETO E GARANTE LEITURA PERFEITA DO TEXTO) -->
+<div class="scope__overlay" style="position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; background: linear-gradient(90deg, rgba(0, 15, 35, 0.72) 0%, rgba(0, 15, 35, 0.38) 55%, rgba(0, 15, 35, 0.15) 100%) !important; pointer-events: none !important; z-index: 1 !important;"></div>
 
-<div class="scope__container" style="position: relative; z-index: 2; width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-<div class="scope__row" style="display: flex; align-items: center;">
+<!-- CONTEÚDO HERO: TIPOGRAFIA SHINO ELEGANTE SEM BARRA/CARD DE VIDRO -->
+<div class="scope__container" style="position: relative !important; z-index: 2 !important; width: 100% !important; max-width: 1240px !important; margin: 0 auto !important; padding: 60px 24px !important;">
+<div class="scope__row" style="display: flex !important; align-items: center !important;">
 <div class="scope__col col--content">
-
-<!-- PAINEL DE VIDRO MEIO ESCURINHO (GLASSMORPHISM LUXO) -->
-<div class="scope__wrap wrap--content hero-glass-card" style="background: rgba(0, 21, 44, 0.65) !important; backdrop-filter: blur(16px) saturate(160%) !important; -webkit-backdrop-filter: blur(16px) saturate(160%) !important; border: 1px solid rgba(255, 255, 255, 0.16) !important; border-radius: 28px !important; padding: 40px 42px !important; box-shadow: 0 20px 50px rgba(0, 10, 25, 0.45) !important; max-width: 580px !important;">
+<div class="scope__wrap wrap--content" style="max-width: 620px;">
 <div class="scope__heading ">
-<div class="scope__small-title"><h5 style="font-family: 'Manrope', sans-serif !important; font-size: clamp(22px, 2.3vw, 32px) !important; font-weight: 300 !important; color: #ffffff !important; margin-bottom: 2px !important; letter-spacing: 0.5px;">Revele Sua</h5></div>
-<h1 style="font-family: 'Tangerine', cursive !important; font-size: clamp(70px, 7.5vw, 118px) !important; font-weight: 400 !important; color: #60a5fa !important; line-height: 1.05 !important; letter-spacing: 0.01em !important; margin: 0 !important; padding: 0 !important; text-transform: capitalize !important;">Beleza Autêntica</h1></div>
-<div class="scope__content" style="margin-top: 10px;">
-<h2 style="font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-weight: 700; font-size: 20px; color: #ffffff; letter-spacing: -0.01em; margin: 0 0 10px 0; line-height: 1.3;">Dermatologia Clínica &amp; Estética em João Pessoa</h2>
-<p style="max-width: 480px; font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.88); margin: 0 0 24px 0;">A harmonia entre a saúde da sua pele e a sua beleza autêntica. Unimos ciência, tecnologias padrão ouro e acolhimento humano em Manaíra.</p></div>
+<div class="scope__small-title"><h5 style="font-family: 'Manrope', sans-serif !important; font-size: clamp(26px, 2.5vw, 38px) !important; font-weight: 300 !important; color: #ffffff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.7) !important; margin-bottom: 2px !important; letter-spacing: 0.5px;">Revele Sua</h5></div>
+<h1 style="font-family: 'Tangerine', cursive !important; font-size: clamp(80px, 8.5vw, 135px) !important; font-weight: 400 !important; color: #7cb0ff !important; text-shadow: 0 4px 25px rgba(0,10,30,0.85) !important; line-height: 1.05 !important; letter-spacing: 0.01em !important; margin: 0 0 14px 0 !important; padding: 0 !important; text-transform: capitalize !important;">Beleza Autêntica</h1></div>
+<div class="scope__content" style="margin-top: 12px;">
+<h2 style="font-family: 'Encode Sans Expanded', 'Manrope', sans-serif !important; font-weight: 700 !important; font-size: clamp(19px, 2vw, 24px) !important; color: #ffffff !important; text-shadow: 0 2px 8px rgba(0,0,0,0.7) !important; letter-spacing: -0.01em !important; margin: 0 0 12px 0 !important; line-height: 1.35 !important;">Dermatologia Clínica &amp; Estética em João Pessoa</h2>
+<p style="max-width: 520px !important; font-size: 15.5px !important; line-height: 1.65 !important; color: rgba(255, 255, 255, 0.92) !important; text-shadow: 0 1px 6px rgba(0,0,0,0.6) !important; margin: 0 0 28px 0 !important; font-family: 'Manrope', sans-serif !important;">A harmonia entre a saúde da sua pele e a sua beleza autêntica. Unimos ciência, tecnologias padrão ouro e acolhimento humano em Manaíra.</p></div>
 <div class="scope__cta">
 <div class="button-wrap">
-<a class="hs-button button button--primary" href="https://wa.me/5583981466894?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20NovaDerma." style="background-color: #2763cb !important; color: #ffffff !important; border-radius: 30px !important; padding: 13px 34px !important; font-weight: 600 !important; font-size: 15px !important; box-shadow: 0 6px 20px rgba(39,99,203,0.4) !important; display: inline-block; text-decoration: none;">
-                      Agendar Consulta
-                    </a>
+<a class="hs-button button button--primary" href="https://wa.me/5583981466894?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20NovaDerma." style="background-color: #2763cb !important; color: #ffffff !important; border-radius: 30px !important; padding: 14px 38px !important; font-weight: 600 !important; font-size: 15.5px !important; box-shadow: 0 6px 20px rgba(39,99,203,0.45) !important; display: inline-block; text-decoration: none; border: none !important; font-family: 'Manrope', sans-serif !important;">
+  Agendar Consulta
+</a>
 </div>
 </div>
 </div>
 </div>
-<div class="scope__col col--featured featured--">
-<div class="scope__wrap wrap--featured">
+<div class="scope__col col--featured featured--" style="display: none;">
+<div class="scope__wrap wrap--featured"></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div><!--end widget-span -->
+</div></div><!--end widget-span -->
 </div><!--end row-->
 </div><!--end row-wrapper -->
 </div><!--end widget-span -->
@@ -2247,6 +2428,14 @@ body {
 <a class="card-link" href="dermatologia-clinica.html#rosacea">Rosácea &amp; Sensibilidade</a>
 <a class="card-link" href="dermatologia-clinica.html#tricologia">Tricologia &amp; Queda Capilar</a>
 <a class="card-link" href="dermatologia-clinica.html#cirurgia">Cirurgia Dermatológica (Pintas)</a>
+
+<a href="dermatologia-clinica.html" class="mobile-card-cta">Conhecer Dermatologia &rarr;</a>
+
+<a href="injetaveis-bioestimuladores.html" class="mobile-card-cta">Conhecer Injetáveis &rarr;</a>
+
+<a href="ultraformer-mpt.html" class="mobile-card-cta">Conhecer Ultraformer MPT &rarr;</a>
+
+<a href="laser-etherea-mx.html" class="mobile-card-cta">Conhecer Laser Etherea MX &rarr;</a>
 </div>
 </div>
 <div class="card-name"><h4>Dermatologia Clínica</h4></div>
@@ -3221,6 +3410,53 @@ body {
       document.addEventListener('DOMContentLoaded', startHeroVideo);
     } else {
       startHeroVideo();
+    }
+  })();
+</script>
+
+<!-- GSAP & ScrollTrigger para Stacking Glass Cards no Mobile -->
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script>
+  (function() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Aplica efeito stacking apenas no mobile (width <= 768px)
+      function initStackedCards() {
+        if (window.innerWidth <= 768) {
+          var cards = document.querySelectorAll('.interactive-card');
+          var totalCards = cards.length;
+
+          cards.forEach(function(card, index) {
+            if (index < totalCards - 1) {
+              var targetScale = 1 - (totalCards - index) * 0.04;
+              
+              ScrollTrigger.create({
+                trigger: card,
+                start: "top " + (90 + index * 20) + "px",
+                end: "+=320",
+                scrub: true,
+                onUpdate: function(self) {
+                  var p = self.progress;
+                  var scaleVal = 1 - (1 - targetScale) * p;
+                  card.style.transform = "scale(" + Math.max(scaleVal, targetScale) + ")";
+                }
+              });
+            }
+          });
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initStackedCards);
+      } else {
+        initStackedCards();
+      }
+
+      window.addEventListener('resize', function() {
+        ScrollTrigger.refresh();
+      });
     }
   })();
 </script>
