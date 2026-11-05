@@ -2051,7 +2051,7 @@ body {
 
 <style>
   /* ==========================================================================
-     NAVBAR SHINO: CENTRALIZADA NO TOPO, SEM QUEBRA DE LINHAS
+     NAVBAR SHINO: LOGO À ESQUERDA, LINKS EM LINHA SEM QUEBRA, BOTÃO À DIREITA
      ========================================================================== */
   div[data-global-resource-path*="header.html"] {
     position: absolute !important;
@@ -2076,13 +2076,16 @@ body {
     background: #00152C !important;
     border-radius: 40px !important;
     box-shadow: 0 10px 30px rgba(0, 15, 35, 0.5) !important;
-    padding: 6px 26px !important;
+    padding: 6px 24px !important;
   }
   .header .header__row {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     width: 100% !important;
+  }
+  .header .header__col--logo {
+    flex-shrink: 0 !important;
   }
   .header .primary-nav {
     display: flex !important;
@@ -2101,6 +2104,8 @@ body {
     font-size: 13.5px !important;
     color: #ffffff !important;
     text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: color 0.2s ease !important;
   }
   .header .primary-nav > li > a:hover {
     color: #a2c4ff !important;
@@ -2115,144 +2120,271 @@ body {
     font-size: 13.5px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
+    flex-shrink: 0 !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+  }
+  .header .button-nav:hover,
+  .header .button--secondary:hover {
+    background-color: #1e50a8 !important;
+    transform: translateY(-1px) !important;
   }
 
   /* ==========================================================================
-     STACKING GLASS CARDS (MOTION SYSTEM PARA MOBILE NA SEÇÃO 2)
-     PRESERVA 100% O LAYOUT DE 4 COLUNAS NO DESKTOP QUE O USUÁRIO APROVOU!
+     STACKING GLASS CARDS MOTION SYSTEM (GSAP SCROLLTRIGGER PINNED DECK)
+     ZERO ESPAÇOS BRANCOS, TRAVAMENTO PERFEITO, IMAGENS 100% VISÍVEIS
      ========================================================================== */
-  @media screen and (max-width: 768px) {
-    .interactive-cards-grid {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      gap: 20px !important;
-      position: relative !important;
-      padding: 10px 14px 40px 14px !important;
-    }
-    .interactive-card {
-      position: sticky !important;
-      width: 100% !important;
-      max-width: 350px !important;
-      height: 400px !important;
-      max-height: 400px !important;
-      aspect-ratio: auto !important;
-      margin: 0 auto !important;
-      border-radius: 24px !important;
-      overflow: hidden !important;
-      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease !important;
-      box-shadow: 0 12px 35px rgba(0, 10, 25, 0.45), 0 2px 10px rgba(0, 0, 0, 0.2) !important;
-      border: 1px solid rgba(255, 255, 255, 0.22) !important;
-      transform-origin: center top !important;
-    }
-    .interactive-card[data-card-index="0"] { top: 90px !important; z-index: 10 !important; }
-    .interactive-card[data-card-index="1"] { top: 110px !important; z-index: 11 !important; }
-    .interactive-card[data-card-index="2"] { top: 130px !important; z-index: 12 !important; }
-    .interactive-card[data-card-index="3"] { top: 150px !important; z-index: 13 !important; }
-
-    /* Glass reflection shine on top of card */
-    .interactive-card::before {
-      content: "" !important;
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      height: 45% !important;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%) !important;
-      pointer-events: none !important;
-      border-radius: 24px 24px 0 0 !important;
-      z-index: 4 !important;
-    }
-
-    /* Top glass hairline shine */
-    .interactive-card::after {
-      content: "" !important;
-      position: absolute !important;
-      top: 8px !important;
-      left: 12px !important;
-      right: 12px !important;
-      height: 2px !important;
-      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%) !important;
-      border-radius: 1px !important;
-      pointer-events: none !important;
-      z-index: 5 !important;
-    }
-
-    /* Conteúdo sempre visível no Mobile com CTA chamativo para clique */
-    .interactive-card .card-overlay {
-      opacity: 1 !important;
-      backdrop-filter: blur(8px) saturate(140%) !important;
-      -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
-      background: linear-gradient(180deg, rgba(0, 15, 35, 0.45) 0%, rgba(0, 15, 35, 0.78) 60%, rgba(0, 15, 35, 0.92) 100%) !important;
-    }
-    .interactive-card .card-content {
-      padding: 24px 20px 20px 20px !important;
-      justify-content: space-between !important;
-    }
-    .interactive-card .card-content-wrapper {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-      margin-top: 0 !important;
-      width: 100% !important;
-    }
-    .interactive-card .card-icon {
-      margin-bottom: 8px !important;
-    }
-    .interactive-card .card-name {
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      background: rgba(255, 255, 255, 0.12) !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
-      border-radius: 30px !important;
-      padding: 6px 18px !important;
-      margin-bottom: 12px !important;
-    }
-    .interactive-card .card-name h4 {
-      color: #ffffff !important;
-      font-size: 16px !important;
-      margin: 0 !important;
-      font-weight: 600 !important;
-    }
-    .interactive-card .card-links {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 6px !important;
-      align-items: center !important;
-      margin-bottom: 14px !important;
-    }
-    .interactive-card .card-link {
-      font-size: 13px !important;
-      color: rgba(255, 255, 255, 0.9) !important;
-      text-decoration: none !important;
-      padding: 2px 0 !important;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.25) !important;
-    }
-    /* Botão CTA tátil no Mobile para estimular o clique */
-    .interactive-card .mobile-card-cta {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 6px !important;
-      background: #2763cb !important;
-      color: #ffffff !important;
-      border-radius: 25px !important;
-      padding: 9px 22px !important;
-      font-size: 13px !important;
-      font-weight: 600 !important;
-      text-decoration: none !important;
-      box-shadow: 0 4px 15px rgba(39, 99, 203, 0.4) !important;
-      transition: transform 0.2s ease, background-color 0.2s ease !important;
-      width: 80% !important;
-      margin: 0 auto !important;
-    }
-    .interactive-card .mobile-card-cta:active {
-      transform: scale(0.96) !important;
-    }
+  .cards-pin-container {
+    position: relative;
+    width: 100%;
+    height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+  .cards-deck {
+    position: relative;
+    width: 94%;
+    max-width: 980px;
+    height: 480px;
+  }
+  .stack-card {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    isolation: isolate;
+    transform-origin: center top;
+    will-change: transform, opacity, filter;
+  }
+  .stack-card .electric-border {
+    position: absolute;
+    inset: -3px;
+    border-radius: 27px;
+    padding: 3px;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .stack-card .glass-card-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(0, 21, 44, 0.94), rgba(0, 15, 35, 0.98));
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 16px 45px rgba(0, 10, 25, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+  }
+  .stack-card .glass-reflection-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%);
+    pointer-events: none;
+    border-radius: 24px 24px 0 0;
+    z-index: 2;
+  }
+  .stack-card .glass-reflection-line {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+    border-radius: 1px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .stack-card .card-details-side {
+    flex: 1.15;
+    padding: 34px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 3;
+  }
+  .stack-card .card-header-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .stack-card .card-header-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .stack-card .card-header-icon img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+  }
+  .stack-card .card-header-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Manrope', sans-serif;
+    display: block;
+  }
+  .stack-card .card-header-title {
+    font-family: 'Encode Sans Expanded', 'Manrope', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 700;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
+  }
+  .stack-card .card-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    margin: 18px 0;
+  }
+  .stack-card .card-links-grid a {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 13.5px;
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .stack-card .card-links-grid a:hover {
+    color: #60a5fa;
+    transform: translateX(3px);
+  }
+  .stack-card .card-links-grid a::before {
+    content: "•";
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+  }
+  .stack-card .card-footer-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .stack-card .card-footer-btn {
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .stack-card .card-footer-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+  }
+  .stack-card .card-footer-badge {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: 'Manrope', sans-serif;
+  }
+  .stack-card .card-media-side {
+    flex: 0.85;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 24px 24px 0;
+  }
+  .stack-card .card-media-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .stack-card .card-media-side .media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 21, 44, 0.85) 0%, rgba(0, 21, 44, 0.15) 45%, transparent 100%);
+    pointer-events: none;
   }
 
-  /* No desktop o botão CTA mobile fica oculto para manter o visual limpo aprovado */
-  @media screen and (min-width: 769px) {
-    .interactive-card .mobile-card-cta {
+  /* MOBILE RESPONSIVE ADAPTATION */
+  @media screen and (max-width: 768px) {
+    .cards-pin-container {
+      height: 520px !important;
+    }
+    .cards-deck {
+      width: 92% !important;
+      max-width: 360px !important;
+      height: 480px !important;
+    }
+    .stack-card .glass-card-body {
+      flex-direction: column !important;
+    }
+    /* A foto fica no topo com altura fixa proporcional e 100% visível */
+    .stack-card .card-media-side {
+      height: 165px !important;
+      flex: none !important;
+      border-radius: 24px 24px 0 0 !important;
+      position: relative !important;
+      width: 100% !important;
+    }
+    .stack-card .card-media-side .media-overlay {
+      background: linear-gradient(180deg, transparent 50%, rgba(0, 21, 44, 0.9) 100%) !important;
+    }
+    .stack-card .card-details-side {
+      flex: 1 !important;
+      padding: 16px 18px 18px 18px !important;
+      justify-content: space-between !important;
+    }
+    .stack-card .card-header-row {
+      margin-bottom: 8px !important;
+    }
+    .stack-card .card-header-icon {
+      width: 36px !important;
+      height: 36px !important;
+    }
+    .stack-card .card-header-icon img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+    .stack-card .card-header-title {
+      font-size: 18px !important;
+    }
+    .stack-card .card-links-grid {
+      grid-template-columns: 1fr !important;
+      gap: 5px !important;
+      margin: 8px 0 12px 0 !important;
+    }
+    .stack-card .card-links-grid a {
+      font-size: 12.5px !important;
+      padding: 1px 0 !important;
+    }
+    .stack-card .card-footer-row {
+      padding-top: 10px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+    .stack-card .card-footer-btn {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 10px 18px !important;
+      font-size: 13px !important;
+    }
+    .stack-card .card-footer-badge {
       display: none !important;
     }
   }
@@ -2478,225 +2610,194 @@ body {
 <div class="row-fluid">
 <div class="span12 widget-span widget-type-custom_widget dnd-module" data-w="12" data-widget-type="custom_widget" data-x="0" style="">
 <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_widget_1750176696459" style="">
-<section class="interactive-cards-module" id="tratamentos" style="padding: 60px 0 80px 0; position: relative; overflow: visible;">
+<section class="interactive-cards-module" id="tratamentos" style="padding: 60px 0 80px 0; position: relative; overflow: visible; background: #ffffff;">
 <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
   
   <!-- Cabeçalho da Seção (Fontes e Textos 100% Originais) -->
-  <div class="interactive-cards-header" style="text-align: center; max-width: 860px; margin: 0 auto 50px auto;">
-    <span style="color: #EF6B51; font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; display: inline-block; margin-bottom: 10px; font-family: 'Manrope', sans-serif;">CUIDADO INTEGRAL &amp; EXCLUSIVO</span>
+  <div class="interactive-cards-header" style="text-align: center; max-width: 860px; margin: 0 auto 40px auto; padding: 0 20px;">
+    <span style="display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: 2px; color: #E08568; text-transform: uppercase; margin-bottom: 10px; font-family: 'Manrope', sans-serif;">CUIDADO INTEGRAL &amp; EXCLUSIVO</span>
     <h2 class="interactive-cards-title" style="font-family: 'Encode Sans Expanded', 'Playfair Display', Georgia, serif; font-size: clamp(26px, 3.2vw, 40px); color: #00152C; font-weight: 700; line-height: 1.25; margin: 0 0 14px 0;">Soluções Especializadas para a Saúde e Beleza da Sua Pele</h2>
     <p class="interactive-cards-description" style="font-size: 16px; color: #4A5568; line-height: 1.65; max-width: 720px; margin: 0 auto; font-family: 'Manrope', sans-serif;">Procedimentos médicos individualizados e tecnologias padrão ouro desenvolvidos para realçar a sua melhor versão com naturalidade e segurança.</p>
   </div>
 
-  <!-- CONTAINER STACKED GLASS CARDS (MOTION GSAP SCROLLTRIGGER SYSTEM) -->
-  <div class="stacked-cards-container" style="position: relative; width: 100%; max-width: 1080px; margin: 0 auto;">
+  <!-- CONTAINER GSAP PINNED STACK DECK (TRAVAMENTO PERFEITO, ZERO ESPAÇO BRANCO) -->
+  <div id="cards-pin-container" class="cards-pin-container">
+    <div class="cards-deck">
 
-    <!-- CARD 0: Dermatologia Clínica & Cirúrgica -->
-    <div class="stacked-card-wrapper" style="height: 85vh; min-height: 540px; display: flex; align-items: center; justify-content: center; position: sticky; top: 80px; margin-bottom: 20px;">
-      <div class="stacked-glass-card-item" data-card-index="0" style="position: relative; width: 92%; max-width: 960px; height: 480px; border-radius: 24px; isolation: isolate; top: calc(-3vh + 0px); transform-origin: center top;">
-        
-        <!-- Electric Border Effect (conic-gradient) -->
-        <div class="electric-border" style="position: absolute; inset: -3px; border-radius: 27px; padding: 3px; background: conic-gradient(from 0deg, transparent 0deg, rgba(39, 99, 203, 0.8) 60deg, rgba(39, 99, 203, 0.5) 120deg, transparent 180deg, rgba(39, 99, 203, 0.3) 240deg, transparent 360deg); z-index: -1;"></div>
-
-        <!-- Main Card Content (Glassmorphism & Layout) -->
-        <div class="glass-card-body" style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: stretch; border-radius: 24px; background: linear-gradient(145deg, rgba(0, 21, 44, 0.88), rgba(0, 15, 35, 0.94)); backdrop-filter: blur(25px) saturate(180%); -webkit-backdrop-filter: blur(25px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 16px 45px rgba(0, 10, 25, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25); overflow: hidden;">
+      <!-- CARD 0: Dermatologia Clínica & Cirúrgica -->
+      <div class="stack-card" data-card-index="0">
+        <div class="electric-border" style="background: conic-gradient(from 0deg, transparent 0deg, rgba(39, 99, 203, 0.8) 60deg, rgba(39, 99, 203, 0.4) 120deg, transparent 180deg, rgba(39, 99, 203, 0.3) 240deg, transparent 360deg);"></div>
+        <div class="glass-card-body">
+          <div class="glass-reflection-top"></div>
+          <div class="glass-reflection-line"></div>
           
-          <!-- Glass Reflections & Texture -->
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%); pointer-events: none; border-radius: 24px 24px 0 0; z-index: 2;"></div>
-          <div style="position: absolute; top: 8px; left: 16px; right: 16px; height: 2px; background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%); border-radius: 1px; pointer-events: none; z-index: 2;"></div>
-          
-          <!-- Lado Esquerdo: Textos, Ícone e Links (100% Originais) -->
-          <div class="card-details-side" style="flex: 1.15; padding: 36px 36px; display: flex; flex-direction: column; justify-content: space-between; z-index: 3;">
+          <div class="card-details-side">
             <div>
-              <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
-                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(39, 99, 203, 0.2); border: 1px solid rgba(39, 99, 203, 0.4); display: flex; align-items: center; justify-content: center;">
-                  <img alt="Ícone Dermatologia Clínica" loading="lazy" src="images/face-icon-shino-bay.png" style="width: 28px; height: 28px; object-fit: contain;" />
+              <div class="card-header-row">
+                <div class="card-header-icon" style="background: rgba(39, 99, 203, 0.2); border: 1px solid rgba(39, 99, 203, 0.4);">
+                  <img alt="Ícone Dermatologia Clínica" loading="lazy" src="images/face-icon-shino-bay.png" />
                 </div>
                 <div>
-                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #60a5fa; text-transform: uppercase; font-family: 'Manrope', sans-serif;">DIAGNÓSTICO &amp; CUIDADO</span>
-                  <h4 style="font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 24px; color: #ffffff; font-weight: 700; margin: 2px 0 0 0;">Dermatologia Clínica</h4>
+                  <span class="card-header-badge" style="color: #60a5fa;">DIAGNÓSTICO &amp; CUIDADO</span>
+                  <h4 class="card-header-title">Dermatologia Clínica</h4>
                 </div>
               </div>
-              <div class="card-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 20px 0;">
-                <a class="card-link" href="dermatologia-clinica.html#dermatoscopia">Dermatoscopia Digital &amp; Prevenção</a>
-                <a class="card-link" href="dermatologia-clinica.html#acne">Tratamento de Acne &amp; Oleosidade</a>
-                <a class="card-link" href="dermatologia-clinica.html#melasma">Melasma &amp; Manchas Cutâneas</a>
-                <a class="card-link" href="dermatologia-clinica.html#rosacea">Rosácea &amp; Sensibilidade</a>
-                <a class="card-link" href="dermatologia-clinica.html#tricologia">Tricologia &amp; Queda Capilar</a>
-                <a class="card-link" href="dermatologia-clinica.html#cirurgia">Cirurgia Dermatológica (Pintas)</a>
+              
+              <div class="card-links-grid">
+                <a href="dermatologia-clinica.html#dermatoscopia">Dermatoscopia Digital &amp; Prevenção</a>
+                <a href="dermatologia-clinica.html#acne">Tratamento de Acne &amp; Oleosidade</a>
+                <a href="dermatologia-clinica.html#melasma">Melasma &amp; Manchas Cutâneas</a>
+                <a href="dermatologia-clinica.html#rosacea">Rosácea &amp; Sensibilidade</a>
+                <a href="dermatologia-clinica.html#tricologia">Tricologia &amp; Queda Capilar</a>
+                <a href="dermatologia-clinica.html#cirurgia">Cirurgia Dermatológica (Pintas)</a>
               </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.12);">
-              <a href="dermatologia-clinica.html" style="background: #2763cb; color: #ffffff; padding: 10px 24px; border-radius: 30px; font-size: 13.5px; font-weight: 600; text-decoration: none; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 15px rgba(39,99,203,0.4); display: inline-flex; align-items: center; gap: 6px;">
+            
+            <div class="card-footer-row">
+              <a class="card-footer-btn" href="dermatologia-clinica.html" style="background: #2763cb; box-shadow: 0 4px 15px rgba(39,99,203,0.4);">
                 Conhecer Tratamentos &rarr;
               </a>
-              <span style="font-size: 12px; color: rgba(255, 255, 255, 0.6); font-family: 'Manrope', sans-serif;">CRM-PB 9600 &bull; SBD</span>
+              <span class="card-footer-badge">CRM-PB 9600 • SBD</span>
             </div>
           </div>
-
-          <!-- Lado Direito: Foto Imersiva em Moldura Luxury -->
-          <div class="card-media-side" style="flex: 0.95; position: relative; overflow: hidden; border-radius: 0 24px 24px 0;">
-            <img alt="Dermatologia Clínica e Cirúrgica - NovaDerma" loading="lazy" src="images/AdobeStock_242483949_20_1_.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0, 21, 44, 0.8) 0%, rgba(0, 21, 44, 0.1) 40%, transparent 100%);"></div>
+          
+          <div class="card-media-side">
+            <img alt="Dermatologia Clínica e Cirúrgica - NovaDerma" loading="lazy" src="images/AdobeStock_242483949_20_1_.webp" />
+            <div class="media-overlay"></div>
           </div>
-
         </div>
       </div>
-    </div>
 
-    <!-- CARD 1: Injetáveis & Bioestimuladores -->
-    <div class="stacked-card-wrapper" style="height: 85vh; min-height: 540px; display: flex; align-items: center; justify-content: center; position: sticky; top: 80px; margin-bottom: 20px;">
-      <div class="stacked-glass-card-item" data-card-index="1" style="position: relative; width: 92%; max-width: 960px; height: 480px; border-radius: 24px; isolation: isolate; top: calc(-3vh + 25px); transform-origin: center top;">
-        
-        <!-- Electric Border Effect (conic-gradient amber/gold) -->
-        <div class="electric-border" style="position: absolute; inset: -3px; border-radius: 27px; padding: 3px; background: conic-gradient(from 0deg, transparent 0deg, rgba(217, 119, 6, 0.8) 60deg, rgba(217, 119, 6, 0.5) 120deg, transparent 180deg, rgba(217, 119, 6, 0.3) 240deg, transparent 360deg); z-index: -1;"></div>
-
-        <!-- Main Card Content -->
-        <div class="glass-card-body" style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: stretch; border-radius: 24px; background: linear-gradient(145deg, rgba(0, 21, 44, 0.88), rgba(0, 15, 35, 0.94)); backdrop-filter: blur(25px) saturate(180%); -webkit-backdrop-filter: blur(25px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 16px 45px rgba(0, 10, 25, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25); overflow: hidden;">
+      <!-- CARD 1: Injetáveis & Bioestimuladores -->
+      <div class="stack-card" data-card-index="1">
+        <div class="electric-border" style="background: conic-gradient(from 0deg, transparent 0deg, rgba(217, 119, 6, 0.8) 60deg, rgba(217, 119, 6, 0.4) 120deg, transparent 180deg, rgba(217, 119, 6, 0.3) 240deg, transparent 360deg);"></div>
+        <div class="glass-card-body">
+          <div class="glass-reflection-top"></div>
+          <div class="glass-reflection-line"></div>
           
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%); pointer-events: none; border-radius: 24px 24px 0 0; z-index: 2;"></div>
-          <div style="position: absolute; top: 8px; left: 16px; right: 16px; height: 2px; background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%); border-radius: 1px; pointer-events: none; z-index: 2;"></div>
-          
-          <!-- Lado Esquerdo: Textos, Ícone e Links (100% Originais) -->
-          <div class="card-details-side" style="flex: 1.15; padding: 36px 36px; display: flex; flex-direction: column; justify-content: space-between; z-index: 3;">
+          <div class="card-details-side">
             <div>
-              <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
-                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(217, 119, 6, 0.2); border: 1px solid rgba(217, 119, 6, 0.4); display: flex; align-items: center; justify-content: center;">
-                  <img alt="Ícone Procedimentos Injetáveis" loading="lazy" src="images/injection-icon-shino-bay.png" style="width: 28px; height: 28px; object-fit: contain;" />
+              <div class="card-header-row">
+                <div class="card-header-icon" style="background: rgba(217, 119, 6, 0.2); border: 1px solid rgba(217, 119, 6, 0.4);">
+                  <img alt="Ícone Procedimentos Injetáveis" loading="lazy" src="images/injection-icon-shino-bay.png" />
                 </div>
                 <div>
-                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #fbbf24; text-transform: uppercase; font-family: 'Manrope', sans-serif;">NATURALIDADE &amp; HARMONIA</span>
-                  <h4 style="font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 24px; color: #ffffff; font-weight: 700; margin: 2px 0 0 0;">Injetáveis &amp; Bioestimuladores</h4>
+                  <span class="card-header-badge" style="color: #fbbf24;">NATURALIDADE &amp; HARMONIA</span>
+                  <h4 class="card-header-title">Injetáveis &amp; Bioestimuladores</h4>
                 </div>
               </div>
-              <div class="card-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 20px 0;">
-                <a class="card-link" href="injetaveis-bioestimuladores.html#botox">Toxina Botulínica (Botox)</a>
-                <a class="card-link" href="injetaveis-bioestimuladores.html#bioestimuladores">Bioestimuladores (Sculptra &amp; Radiesse)</a>
-                <a class="card-link" href="injetaveis-bioestimuladores.html#preenchimento">Preenchimento com Ácido Hialurônico</a>
-                <a class="card-link" href="injetaveis-bioestimuladores.html#labios-olheiras">Lábios e Olheiras com Naturalidade</a>
-                <a class="card-link" href="injetaveis-bioestimuladores.html#harmonizacao">Harmonização Facial Médica Sutil</a>
+              
+              <div class="card-links-grid">
+                <a href="injetaveis-bioestimuladores.html#botox">Toxina Botulínica (Botox)</a>
+                <a href="injetaveis-bioestimuladores.html#bioestimuladores">Bioestimuladores (Sculptra &amp; Radiesse)</a>
+                <a href="injetaveis-bioestimuladores.html#preenchimento">Preenchimento com Ácido Hialurônico</a>
+                <a href="injetaveis-bioestimuladores.html#labios-olheiras">Lábios e Olheiras com Naturalidade</a>
+                <a href="injetaveis-bioestimuladores.html#harmonizacao">Harmonização Facial Médica Sutil</a>
               </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.12);">
-              <a href="injetaveis-bioestimuladores.html" style="background: #d97706; color: #ffffff; padding: 10px 24px; border-radius: 30px; font-size: 13.5px; font-weight: 600; text-decoration: none; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 15px rgba(217,119,6,0.4); display: inline-flex; align-items: center; gap: 6px;">
+            
+            <div class="card-footer-row">
+              <a class="card-footer-btn" href="injetaveis-bioestimuladores.html" style="background: #d97706; box-shadow: 0 4px 15px rgba(217,119,6,0.4);">
                 Conhecer Tratamentos &rarr;
               </a>
-              <span style="font-size: 12px; color: rgba(255, 255, 255, 0.6); font-family: 'Manrope', sans-serif;">Resultados Naturais &bull; CRM-PB</span>
+              <span class="card-footer-badge">Rejuvenescimento Natural</span>
             </div>
           </div>
-
-          <!-- Lado Direito: Foto Imersiva -->
-          <div class="card-media-side" style="flex: 0.95; position: relative; overflow: hidden; border-radius: 0 24px 24px 0;">
-            <img alt="Procedimentos Injetáveis, Toxina Botulínica e Bioestimuladores - NovaDerma" loading="lazy" src="images/100925-juvederm-hero-2.jpeg" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0, 21, 44, 0.8) 0%, rgba(0, 21, 44, 0.1) 40%, transparent 100%);"></div>
+          
+          <div class="card-media-side">
+            <img alt="Procedimentos Injetáveis, Toxina Botulínica e Bioestimuladores - NovaDerma" loading="lazy" src="images/100925-juvederm-hero-2.jpeg" />
+            <div class="media-overlay"></div>
           </div>
-
         </div>
       </div>
-    </div>
 
-    <!-- CARD 2: Ultraformer MPT -->
-    <div class="stacked-card-wrapper" style="height: 85vh; min-height: 540px; display: flex; align-items: center; justify-content: center; position: sticky; top: 80px; margin-bottom: 20px;">
-      <div class="stacked-glass-card-item" data-card-index="2" style="position: relative; width: 92%; max-width: 960px; height: 480px; border-radius: 24px; isolation: isolate; top: calc(-3vh + 50px); transform-origin: center top;">
-        
-        <!-- Electric Border Effect (conic-gradient cyan) -->
-        <div class="electric-border" style="position: absolute; inset: -3px; border-radius: 27px; padding: 3px; background: conic-gradient(from 0deg, transparent 0deg, rgba(6, 182, 212, 0.8) 60deg, rgba(6, 182, 212, 0.5) 120deg, transparent 180deg, rgba(6, 182, 212, 0.3) 240deg, transparent 360deg); z-index: -1;"></div>
-
-        <!-- Main Card Content -->
-        <div class="glass-card-body" style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: stretch; border-radius: 24px; background: linear-gradient(145deg, rgba(0, 21, 44, 0.88), rgba(0, 15, 35, 0.94)); backdrop-filter: blur(25px) saturate(180%); -webkit-backdrop-filter: blur(25px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 16px 45px rgba(0, 10, 25, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25); overflow: hidden;">
+      <!-- CARD 2: Ultraformer MPT -->
+      <div class="stack-card" data-card-index="2">
+        <div class="electric-border" style="background: conic-gradient(from 0deg, transparent 0deg, rgba(16, 185, 129, 0.8) 60deg, rgba(16, 185, 129, 0.4) 120deg, transparent 180deg, rgba(16, 185, 129, 0.3) 240deg, transparent 360deg);"></div>
+        <div class="glass-card-body">
+          <div class="glass-reflection-top"></div>
+          <div class="glass-reflection-line"></div>
           
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%); pointer-events: none; border-radius: 24px 24px 0 0; z-index: 2;"></div>
-          <div style="position: absolute; top: 8px; left: 16px; right: 16px; height: 2px; background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%); border-radius: 1px; pointer-events: none; z-index: 2;"></div>
-          
-          <!-- Lado Esquerdo: Textos, Ícone e Links (100% Originais) -->
-          <div class="card-details-side" style="flex: 1.15; padding: 36px 36px; display: flex; flex-direction: column; justify-content: space-between; z-index: 3;">
+          <div class="card-details-side">
             <div>
-              <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
-                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.4); display: flex; align-items: center; justify-content: center;">
-                  <img alt="Ícone Ultraformer MPT" loading="lazy" src="images/spa-icon-shino-bay.png" style="width: 28px; height: 28px; object-fit: contain;" />
+              <div class="card-header-row">
+                <div class="card-header-icon" style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4);">
+                  <img alt="Ícone Ultraformer MPT" loading="lazy" src="images/spa-icon-shino-bay.png" />
                 </div>
                 <div>
-                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #22d3ee; text-transform: uppercase; font-family: 'Manrope', sans-serif;">LIFTING &amp; FIRMEZA</span>
-                  <h4 style="font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 24px; color: #ffffff; font-weight: 700; margin: 2px 0 0 0;">Ultraformer MPT</h4>
+                  <span class="card-header-badge" style="color: #34d399;">TECNOLOGIA DE LIFTING</span>
+                  <h4 class="card-header-title">Ultraformer MPT</h4>
                 </div>
               </div>
-              <div class="card-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 20px 0;">
-                <a class="card-link" href="ultraformer-mpt.html#lifting-facial">Lifting Facial Não Cirúrgico</a>
-                <a class="card-link" href="ultraformer-mpt.html#contorno">Efeito Bichectomia &amp; Contorno</a>
-                <a class="card-link" href="ultraformer-mpt.html#papada">Redução de Papada e Firmeza</a>
-                <a class="card-link" href="ultraformer-mpt.html#colageno">Estímulo Profundo de Colágeno</a>
-                <a class="card-link" href="ultraformer-mpt.html#corporal">Protocolos Corporais Avançados</a>
+              
+              <div class="card-links-grid">
+                <a href="ultraformer-mpt.html#lifting-facial">Lifting Facial Não Cirúrgico</a>
+                <a href="ultraformer-mpt.html#contorno">Efeito Bichectomia &amp; Contorno</a>
+                <a href="ultraformer-mpt.html#papada">Tratamento de Papada &amp; Pescoço</a>
+                <a href="ultraformer-mpt.html#flacidez">Estímulo Profundo de Colágeno</a>
+                <a href="ultraformer-mpt.html#corporal">Protocolos Corporais Exclusivos</a>
               </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.12);">
-              <a href="ultraformer-mpt.html" style="background: #0891b2; color: #ffffff; padding: 10px 24px; border-radius: 30px; font-size: 13.5px; font-weight: 600; text-decoration: none; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 15px rgba(8,145,178,0.4); display: inline-flex; align-items: center; gap: 6px;">
+            
+            <div class="card-footer-row">
+              <a class="card-footer-btn" href="ultraformer-mpt.html" style="background: #059669; box-shadow: 0 4px 15px rgba(5,150,105,0.4);">
                 Conhecer Tratamentos &rarr;
               </a>
-              <span style="font-size: 12px; color: rgba(255, 255, 255, 0.6); font-family: 'Manrope', sans-serif;">Padrão Ouro Mundial</span>
+              <span class="card-footer-badge">Ultrassom Micro e Macrofocado</span>
             </div>
           </div>
-
-          <!-- Lado Direito: Foto Imersiva -->
-          <div class="card-media-side" style="flex: 0.95; position: relative; overflow: hidden; border-radius: 0 24px 24px 0;">
-            <img alt="Ultraformer MPT Lifting Facial e Corporal - NovaDerma" loading="lazy" src="images/AdobeStock_187324575_20_1__20_1_.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0, 21, 44, 0.8) 0%, rgba(0, 21, 44, 0.1) 40%, transparent 100%);"></div>
+          
+          <div class="card-media-side">
+            <img alt="Ultraformer MPT Lifting Facial e Corporal - NovaDerma" loading="lazy" src="images/AdobeStock_187324575_20_1__20_1_.webp" />
+            <div class="media-overlay"></div>
           </div>
-
         </div>
       </div>
-    </div>
 
-    <!-- CARD 3: Laser Etherea MX -->
-    <div class="stacked-card-wrapper" style="height: 85vh; min-height: 540px; display: flex; align-items: center; justify-content: center; position: sticky; top: 80px; margin-bottom: 20px;">
-      <div class="stacked-glass-card-item" data-card-index="3" style="position: relative; width: 92%; max-width: 960px; height: 480px; border-radius: 24px; isolation: isolate; top: calc(-3vh + 75px); transform-origin: center top;">
-        
-        <!-- Electric Border Effect (conic-gradient purple/indigo) -->
-        <div class="electric-border" style="position: absolute; inset: -3px; border-radius: 27px; padding: 3px; background: conic-gradient(from 0deg, transparent 0deg, rgba(139, 92, 246, 0.8) 60deg, rgba(139, 92, 246, 0.5) 120deg, transparent 180deg, rgba(139, 92, 246, 0.3) 240deg, transparent 360deg); z-index: -1;"></div>
-
-        <!-- Main Card Content -->
-        <div class="glass-card-body" style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: stretch; border-radius: 24px; background: linear-gradient(145deg, rgba(0, 21, 44, 0.88), rgba(0, 15, 35, 0.94)); backdrop-filter: blur(25px) saturate(180%); -webkit-backdrop-filter: blur(25px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 16px 45px rgba(0, 10, 25, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25); overflow: hidden;">
+      <!-- CARD 3: Laser Etherea MX -->
+      <div class="stack-card" data-card-index="3">
+        <div class="electric-border" style="background: conic-gradient(from 0deg, transparent 0deg, rgba(139, 92, 246, 0.8) 60deg, rgba(139, 92, 246, 0.4) 120deg, transparent 180deg, rgba(139, 92, 246, 0.3) 240deg, transparent 360deg);"></div>
+        <div class="glass-card-body">
+          <div class="glass-reflection-top"></div>
+          <div class="glass-reflection-line"></div>
           
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%); pointer-events: none; border-radius: 24px 24px 0 0; z-index: 2;"></div>
-          <div style="position: absolute; top: 8px; left: 16px; right: 16px; height: 2px; background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%); border-radius: 1px; pointer-events: none; z-index: 2;"></div>
-          
-          <!-- Lado Esquerdo: Textos, Ícone e Links (100% Originais) -->
-          <div class="card-details-side" style="flex: 1.15; padding: 36px 36px; display: flex; flex-direction: column; justify-content: space-between; z-index: 3;">
+          <div class="card-details-side">
             <div>
-              <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
-                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); display: flex; align-items: center; justify-content: center;">
-                  <img alt="Ícone Laser Etherea MX" loading="lazy" src="images/laser-icon-shino-bay.png" style="width: 28px; height: 28px; object-fit: contain;" />
+              <div class="card-header-row">
+                <div class="card-header-icon" style="background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4);">
+                  <img alt="Ícone Laser Etherea MX" loading="lazy" src="images/laser-icon-shino-bay.png" />
                 </div>
                 <div>
-                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #c084fc; text-transform: uppercase; font-family: 'Manrope', sans-serif;">REJUVENESCIMENTO A LASER</span>
-                  <h4 style="font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 24px; color: #ffffff; font-weight: 700; margin: 2px 0 0 0;">Laser Etherea MX</h4>
+                  <span class="card-header-badge" style="color: #c084fc;">REJUVENESCIMENTO A LASER</span>
+                  <h4 class="card-header-title">Laser Etherea MX</h4>
                 </div>
               </div>
-              <div class="card-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 20px 0;">
-                <a class="card-link" href="laser-etherea-mx.html#rejuvenescimento">Rejuvenescimento Fracionado</a>
-                <a class="card-link" href="laser-etherea-mx.html#melasma">Tratamento de Melasma &amp; Manchas</a>
-                <a class="card-link" href="laser-etherea-mx.html#cicatrizes">Cicatrizes de Acne &amp; Poros</a>
-                <a class="card-link" href="laser-etherea-mx.html#manchas">Remoção de Manchas Solares</a>
-                <a class="card-link" href="laser-etherea-mx.html#textura">Uniformização Global da Pele</a>
+              
+              <div class="card-links-grid">
+                <a href="laser-etherea-mx.html#rejuvenescimento">Rejuvenescimento Fracionado</a>
+                <a href="laser-etherea-mx.html#melasma">Tratamento de Melasma &amp; Manchas</a>
+                <a href="laser-etherea-mx.html#cicatrizes">Cicatrizes de Acne &amp; Poros</a>
+                <a href="laser-etherea-mx.html#manchas">Remoção de Manchas Solares</a>
+                <a href="laser-etherea-mx.html#textura">Uniformização Global da Pele</a>
               </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.12);">
-              <a href="laser-etherea-mx.html" style="background: #7c3aed; color: #ffffff; padding: 10px 24px; border-radius: 30px; font-size: 13.5px; font-weight: 600; text-decoration: none; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 15px rgba(124,58,237,0.4); display: inline-flex; align-items: center; gap: 6px;">
+            
+            <div class="card-footer-row">
+              <a class="card-footer-btn" href="laser-etherea-mx.html" style="background: #7c3aed; box-shadow: 0 4px 15px rgba(124,58,237,0.4);">
                 Conhecer Tratamentos &rarr;
               </a>
-              <span style="font-size: 12px; color: rgba(255, 255, 255, 0.6); font-family: 'Manrope', sans-serif;">Multiplataforma Avançada</span>
+              <span class="card-footer-badge">Multiplataforma Avançada</span>
             </div>
           </div>
-
-          <!-- Lado Direito: Foto Imersiva -->
-          <div class="card-media-side" style="flex: 0.95; position: relative; overflow: hidden; border-radius: 0 24px 24px 0;">
-            <img alt="Laser Etherea MX Rejuvenescimento e Melasma - NovaDerma" loading="lazy" src="images/laser-shino-bay.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0, 21, 44, 0.8) 0%, rgba(0, 21, 44, 0.1) 40%, transparent 100%);"></div>
+          
+          <div class="card-media-side">
+            <img alt="Laser Etherea MX Rejuvenescimento e Melasma - NovaDerma" loading="lazy" src="images/laser-shino-bay.jpg" />
+            <div class="media-overlay"></div>
           </div>
-
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
 </section>
@@ -3651,51 +3752,76 @@ body {
 <script src="js/ScrollTrigger.min.js"></script>
 <script>
   (function() {
-    function initStackedCardsMotion() {
+    function initPinnedCardsStack() {
       if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
         console.warn('GSAP or ScrollTrigger not loaded yet');
         return;
       }
-      
+
       gsap.registerPlugin(ScrollTrigger);
 
-      var cards = document.querySelectorAll('.stacked-glass-card-item');
-      var totalCards = cards.length;
+      var pinContainer = document.getElementById('cards-pin-container');
+      if (!pinContainer) return;
 
-      cards.forEach(function(card, index) {
-        var container = card.closest('.stacked-card-wrapper');
-        if (!container) return;
+      var cards = gsap.utils.toArray('.stack-card');
+      if (cards.length < 2) return;
 
-        var targetScale = 1 - (totalCards - index) * 0.05;
-
-        // Set initial state
-        gsap.set(card, {
-          scale: 1,
-          transformOrigin: "center top"
-        });
-
-        // Create scroll trigger for stacking effect (exact physics from reference component)
-        ScrollTrigger.create({
-          trigger: container,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onUpdate: function(self) {
-            var progress = self.progress;
-            var scale = gsap.utils.interpolate(1, targetScale, progress);
-            gsap.set(card, {
-              scale: Math.max(scale, targetScale),
-              transformOrigin: "center top"
-            });
-          }
-        });
+      // Clean up previous triggers on this container
+      ScrollTrigger.getAll().forEach(function(st) {
+        if (st.trigger === pinContainer || (st.vars && st.vars.id === 'pinnedCards')) {
+          st.kill();
+        }
       });
+
+      // Set initial states
+      gsap.set(cards[0], { yPercent: 0, scale: 1, opacity: 1, zIndex: 10 });
+      for (var i = 1; i < cards.length; i++) {
+        gsap.set(cards[i], {
+          yPercent: 120,
+          scale: 0.95,
+          opacity: 1,
+          zIndex: 10 + i * 10
+        });
+      }
+
+      // Master ScrollTrigger timeline with PINNING
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'pinnedCards',
+          trigger: pinContainer,
+          start: 'top top+=80',
+          end: '+=' + (cards.length * 600),
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1
+        }
+      });
+
+      // Animate cards stacking one over another smoothly
+      for (var j = 1; j < cards.length; j++) {
+        var prevCard = cards[j - 1];
+        var currCard = cards[j];
+        var stepTime = (j - 1) * 1.0;
+
+        tl.to(currCard, {
+          yPercent: 0,
+          scale: 1,
+          ease: 'power1.inOut'
+        }, stepTime);
+
+        tl.to(prevCard, {
+          scale: 1 - (cards.length - (j - 1)) * 0.035,
+          opacity: 0.75,
+          filter: 'brightness(0.65)',
+          ease: 'power1.inOut'
+        }, stepTime);
+      }
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initStackedCardsMotion);
+      document.addEventListener('DOMContentLoaded', initPinnedCardsStack);
     } else {
-      initStackedCardsMotion();
+      initPinnedCardsStack();
     }
 
     window.addEventListener('resize', function() {
