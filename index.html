@@ -2773,7 +2773,7 @@ body {
 <div class="span12 widget-span widget-type-custom_widget dnd-module" data-w="12" data-widget-type="custom_widget" data-x="0" style="">
 <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_widget_1750176696459" style="">
 <section class="interactive-cards-module" id="tratamentos" style="padding: 60px 0 70px 0; position: relative; overflow: hidden; background: #ffffff;">
-<div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
+<div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 15px;">
   
   <!-- Cabeçalho da Seção -->
   <div class="interactive-cards-header" style="text-align: center; max-width: 860px; margin: 0 auto 35px auto; padding: 0 15px;">
@@ -2782,25 +2782,74 @@ body {
     <p class="interactive-cards-description" style="font-size: 15.5px; color: #4A5568; line-height: 1.65; max-width: 720px; margin: 0 auto; font-family: 'Manrope', sans-serif;">Procedimentos médicos individualizados e tecnologias padrão ouro desenvolvidos para realçar a sua melhor versão com naturalidade e segurança.</p>
   </div>
 
-  <!-- ESTEIRA CONTÍNUA MOTION LOOP (LEVE, ULTRA-RÁPIDA, SEM TRAVAMENTO DE SCROLL) -->
-  <div class="treatments-loop-wrapper" style="position: relative; overflow: hidden; padding: 15px 0 25px 0; width: 100%;">
+  <!-- CAROUSEL MOTION COM NAVEGAÇÃO POR SETAS E RETOMADA AUTOMÁTICA -->
+  <div class="treatments-carousel-wrapper" style="position: relative; width: 100%; margin: 10px 0 25px 0;">
     <style>
-      @keyframes treatmentsScrollLoop {
-        0% { transform: translate3d(0, 0, 0); }
-        100% { transform: translate3d(-50%, 0, 0); }
+      .treatments-carousel-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+      .treatments-scroll-container {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 15px 0 25px 0;
+        cursor: grab;
+      }
+      .treatments-scroll-container::-webkit-scrollbar {
+        display: none;
+      }
+      .treatments-scroll-container:active {
+        cursor: grabbing;
       }
       .treatments-track {
         display: flex;
-        gap: 24px;
+        gap: 22px;
         width: max-content;
-        animation: treatmentsScrollLoop 32s linear infinite;
+        padding: 0 45px;
         will-change: transform;
       }
-      .treatments-track:hover {
-        animation-play-state: paused;
+
+      /* SETAS DE NAVEGAÇÃO FLUTUANTES (ESQUERDA E DIREITA) */
+      .treatments-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(0, 21, 44, 0.88);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 8px 25px rgba(0, 15, 35, 0.5);
+        transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
       }
-      .treatments-loop-wrapper:hover .treatments-track {
-        animation-play-state: paused;
+      .treatments-nav-btn:hover {
+        background: #2763cb;
+        border-color: #2763cb;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 10px 30px rgba(39, 99, 203, 0.6);
+      }
+      .treatments-nav-btn:active {
+        transform: translateY(-50%) scale(0.95);
+      }
+      .treatments-nav-btn.prev-btn {
+        left: 12px;
+      }
+      .treatments-nav-btn.next-btn {
+        right: 12px;
       }
 
       /* Card Styling */
@@ -2869,6 +2918,9 @@ body {
       .treatment-loop-card.touch-active .card-hover-overlay {
         opacity: 1;
       }
+      .treatment-loop-card.touch-active .card-bottom-pill {
+        opacity: 0;
+      }
       .treatment-loop-card .overlay-links {
         display: flex;
         flex-direction: column;
@@ -2889,44 +2941,62 @@ body {
         border-bottom-color: #60a5fa;
       }
 
-      /* Gradientes de fade nas pontas para estética ultra refinada */
-      .treatments-loop-wrapper::before,
-      .treatments-loop-wrapper::after {
+      /* Gradientes suaves de fusão nas pontas */
+      .treatments-carousel-wrapper::before,
+      .treatments-carousel-wrapper::after {
         content: "";
         position: absolute;
         top: 0;
         bottom: 0;
-        width: 60px;
-        z-index: 3;
+        width: 50px;
+        z-index: 5;
         pointer-events: none;
       }
-      .treatments-loop-wrapper::before {
+      .treatments-carousel-wrapper::before {
         left: 0;
         background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
       }
-      .treatments-loop-wrapper::after {
+      .treatments-carousel-wrapper::after {
         right: 0;
         background: linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%);
       }
 
       @media screen and (max-width: 768px) {
         .treatment-loop-card {
-          width: 250px;
-          height: 420px;
-          border-radius: 26px;
+          width: 250px !important;
+          height: 420px !important;
+          border-radius: 26px !important;
         }
         .treatments-track {
-          gap: 16px;
-          animation-duration: 24s;
+          gap: 16px !important;
+          padding: 0 16px !important;
         }
-        .treatments-loop-wrapper::before,
-        .treatments-loop-wrapper::after {
-          width: 30px;
+        .treatments-nav-btn {
+          width: 40px !important;
+          height: 40px !important;
+          background: rgba(0, 21, 44, 0.92) !important;
+        }
+        .treatments-nav-btn.prev-btn {
+          left: 4px !important;
+        }
+        .treatments-nav-btn.next-btn {
+          right: 4px !important;
+        }
+        .treatments-carousel-wrapper::before,
+        .treatments-carousel-wrapper::after {
+          width: 25px !important;
         }
       }
     </style>
 
-    <div class="treatments-track" id="treatmentsTrack">
+    <!-- Seta Esquerda (⬅️) -->
+    <button id="treatmentsPrevBtn" class="treatments-nav-btn prev-btn" aria-label="Ver Tratamento Anterior">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+
+    <!-- Container com Rolagem Livre e Suave -->
+    <div id="treatmentsScrollContainer" class="treatments-scroll-container">
+      <div class="treatments-track" id="treatmentsTrack">
       <!-- CARD 0: Dermatologia Clínica -->
       <div class="treatment-loop-card" data-card-index="0">
         <img alt="Dermatologia Clínica - NovaDerma" class="card-bg-img" loading="lazy" src="images/AdobeStock_242483949_20_1_.webp" />
@@ -3160,22 +3230,229 @@ body {
             </a>
           </div>
         </div>
+      </div>
+      <!-- CARD 0: Dermatologia Clínica -->
+      <div class="treatment-loop-card" data-card-index="0">
+        <img alt="Dermatologia Clínica - NovaDerma" class="card-bg-img" loading="lazy" src="images/AdobeStock_242483949_20_1_.webp" />
+        <div class="card-bottom-pill">
+          <span style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #60a5fa; text-transform: uppercase; margin-bottom: 3px; font-family: 'Manrope', sans-serif;">DIAGNÓSTICO & CUIDADO</span>
+          <h4 style="color: #ffffff; font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 15px; margin: 0; font-weight: 700;">Dermatologia Clínica</h4>
+        </div>
+        <div class="card-hover-overlay">
+          <div>
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto;">
+              <img alt="Ícone Dermatologia Clínica" src="images/face-icon-shino-bay.png" style="width: 24px; height: 24px; object-fit: contain;" />
+            </div>
+            <span style="display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; color: #60a5fa; text-transform: uppercase; margin-bottom: 4px; font-family: 'Manrope', sans-serif;">DIAGNÓSTICO & CUIDADO</span>
+            <h4 style="color: #ffffff; font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 17px; margin: 0 0 12px 0; font-weight: 700;">Dermatologia Clínica</h4>
+            <div class="overlay-links">
+          <a href="dermatologia-clinica.html#dermatoscopia">Dermatoscopia Digital & Prevenção</a>
+          <a href="dermatologia-clinica.html#acne">Tratamento de Acne & Oleosidade</a>
+          <a href="dermatologia-clinica.html#melasma">Melasma & Manchas Cutâneas</a>
+          <a href="dermatologia-clinica.html#rosacea">Rosácea & Sensibilidade</a>
+          <a href="dermatologia-clinica.html#tricologia">Tricologia & Queda Capilar</a>
+          <a href="dermatologia-clinica.html#cirurgia">Cirurgia Dermatológica (Pintas)</a>
+            </div>
+          </div>
+          <div style="margin-top: 14px;">
+            <a href="dermatologia-clinica.html" style="display: inline-flex; align-items: center; gap: 6px; background: #2763cb; color: #ffffff; padding: 8px 20px; border-radius: 20px; font-size: 12.5px; font-weight: 600; text-decoration: none; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 15px rgba(39,99,203,0.4); transition: transform 0.2s ease;">
+              Conhecer Tratamentos &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- CARD 1: Injetáveis & Bioestimuladores -->
+      <div class="treatment-loop-card" data-card-index="1">
+        <img alt="Injetáveis & Bioestimuladores - NovaDerma" class="card-bg-img" loading="lazy" src="images/100925-juvederm-hero-2.jpeg" />
+        <div class="card-bottom-pill">
+          <span style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #fbbf24; text-transform: uppercase; margin-bottom: 3px; font-family: 'Manrope', sans-serif;">NATURALIDADE & HARMONIA</span>
+          <h4 style="color: #ffffff; font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 15px; margin: 0; font-weight: 700;">Injetáveis & Bioestimuladores</h4>
+        </div>
+        <div class="card-hover-overlay">
+          <div>
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto;">
+              <img alt="Ícone Injetáveis & Bioestimuladores" src="images/injection-icon-shino-bay.png" style="width: 24px; height: 24px; object-fit: contain;" />
+            </div>
+            <span style="display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; color: #fbbf24; text-transform: uppercase; margin-bottom: 4px; font-family: 'Manrope', sans-serif;">NATURALIDADE & HARMONIA</span>
+            <h4 style="color: #ffffff; font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 17px; margin: 0 0 12px 0; font-weight: 700;">Injetáveis & Bioestimuladores</h4>
+            <div class="overlay-links">
+          <a href="injetaveis-bioestimuladores.html#botox">Toxina Botulínica (Botox)</a>
+          <a href="injetaveis-bioestimuladores.html#bioestimuladores">Bioestimuladores (Sculptra)</a>
+          <a href="injetaveis-bioestimuladores.html#preenchimento">Ácido Hialurônico</a>
+          <a href="injetaveis-bioestimuladores.html#labios-olheiras">Lábios e Olheiras</a>
+          <a href="injetaveis-bioestimuladores.html#harmonizacao">Harmonização Facial Médica</a>
+            </div>
+          </div>
+          <div style="margin-top: 14px;">
+            <a href="injetaveis-bioestimuladores.html" style="display: inline-flex; align-items: center; gap: 6px; background: #2763cb; color: #ffffff; padding: 8px 20px; border-radius: 20px; font-size: 12.5px; font-weight: 600; text-decoration: none; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 15px rgba(39,99,203,0.4); transition: transform 0.2s ease;">
+              Conhecer Tratamentos &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- CARD 2: Ultraformer MPT -->
+      <div class="treatment-loop-card" data-card-index="2">
+        <img alt="Ultraformer MPT - NovaDerma" class="card-bg-img" loading="lazy" src="images/AdobeStock_187324575_20_1__20_1_.webp" />
+        <div class="card-bottom-pill">
+          <span style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #34d399; text-transform: uppercase; margin-bottom: 3px; font-family: 'Manrope', sans-serif;">TECNOLOGIA DE LIFTING</span>
+          <h4 style="color: #ffffff; font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 15px; margin: 0; font-weight: 700;">Ultraformer MPT</h4>
+        </div>
+        <div class="card-hover-overlay">
+          <div>
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto;">
+              <img alt="Ícone Ultraformer MPT" src="images/spa-icon-shino-bay.png" style="width: 24px; height: 24px; object-fit: contain;" />
+            </div>
+            <span style="display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; color: #34d399; text-transform: uppercase; margin-bottom: 4px; font-family: 'Manrope', sans-serif;">TECNOLOGIA DE LIFTING</span>
+            <h4 style="color: #ffffff; font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 17px; margin: 0 0 12px 0; font-weight: 700;">Ultraformer MPT</h4>
+            <div class="overlay-links">
+          <a href="ultraformer-mpt.html#lifting-facial">Lifting Facial Não Cirúrgico</a>
+          <a href="ultraformer-mpt.html#contorno">Efeito Bichectomia & Contorno</a>
+          <a href="ultraformer-mpt.html#papada">Tratamento de Papada & Pescoço</a>
+          <a href="ultraformer-mpt.html#flacidez">Estímulo Profundo de Colágeno</a>
+          <a href="ultraformer-mpt.html#corporal">Protocolos Corporais Exclusivos</a>
+            </div>
+          </div>
+          <div style="margin-top: 14px;">
+            <a href="ultraformer-mpt.html" style="display: inline-flex; align-items: center; gap: 6px; background: #2763cb; color: #ffffff; padding: 8px 20px; border-radius: 20px; font-size: 12.5px; font-weight: 600; text-decoration: none; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 15px rgba(39,99,203,0.4); transition: transform 0.2s ease;">
+              Conhecer Tratamentos &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- CARD 3: Laser Etherea MX -->
+      <div class="treatment-loop-card" data-card-index="3">
+        <img alt="Laser Etherea MX - NovaDerma" class="card-bg-img" loading="lazy" src="images/laser-shino-bay.jpg" />
+        <div class="card-bottom-pill">
+          <span style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #c084fc; text-transform: uppercase; margin-bottom: 3px; font-family: 'Manrope', sans-serif;">REJUVENESCIMENTO A LASER</span>
+          <h4 style="color: #ffffff; font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 15px; margin: 0; font-weight: 700;">Laser Etherea MX</h4>
+        </div>
+        <div class="card-hover-overlay">
+          <div>
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto;">
+              <img alt="Ícone Laser Etherea MX" src="images/laser-icon-shino-bay.png" style="width: 24px; height: 24px; object-fit: contain;" />
+            </div>
+            <span style="display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; color: #c084fc; text-transform: uppercase; margin-bottom: 4px; font-family: 'Manrope', sans-serif;">REJUVENESCIMENTO A LASER</span>
+            <h4 style="color: #ffffff; font-family: 'Encode Sans Expanded', 'Manrope', sans-serif; font-size: 17px; margin: 0 0 12px 0; font-weight: 700;">Laser Etherea MX</h4>
+            <div class="overlay-links">
+          <a href="laser-etherea-mx.html#rejuvenescimento">Rejuvenescimento Fracionado</a>
+          <a href="laser-etherea-mx.html#melasma">Tratamento de Melasma & Manchas</a>
+          <a href="laser-etherea-mx.html#cicatrizes">Cicatrizes de Acne & Poros</a>
+          <a href="laser-etherea-mx.html#manchas">Remoção de Manchas Solares</a>
+          <a href="laser-etherea-mx.html#textura">Uniformização Global da Pele</a>
+            </div>
+          </div>
+          <div style="margin-top: 14px;">
+            <a href="laser-etherea-mx.html" style="display: inline-flex; align-items: center; gap: 6px; background: #2763cb; color: #ffffff; padding: 8px 20px; border-radius: 20px; font-size: 12.5px; font-weight: 600; text-decoration: none; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 15px rgba(39,99,203,0.4); transition: transform 0.2s ease;">
+              Conhecer Tratamentos &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
+
+    <!-- Seta Direita (➡️) -->
+    <button id="treatmentsNextBtn" class="treatments-nav-btn next-btn" aria-label="Ver Próximo Tratamento">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
   </div>
 
-  <!-- Micro-interação touch no Mobile: toca para ver detalhes e pausar -->
+  <!-- CONTROLADOR JAVASCRIPT: MOVIMENTO SUAVE, CONTROLE POR SETAS E RETOMADA AUTOMÁTICA -->
   <script>
     (function() {
-      var track = document.getElementById('treatmentsTrack');
-      if (!track) return;
-      var cards = track.querySelectorAll('.treatment-loop-card');
+      var container = document.getElementById('treatmentsScrollContainer');
+      var prevBtn = document.getElementById('treatmentsPrevBtn');
+      var nextBtn = document.getElementById('treatmentsNextBtn');
+      if (!container) return;
+
+      var isPaused = false;
+      var resumeTimer = null;
+      var speed = 0.75; // Pixels por frame (velocidade suave e constante)
+      var animationFrameId = null;
+
+      // Pausa e retoma automaticamente após um tempo
+      function pauseTemporarily(durationMs) {
+        isPaused = true;
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(function() {
+          isPaused = false;
+        }, durationMs || 2500);
+      }
+
+      // Loop contínuo com reposicionamento infinito invisível
+      function autoScroll() {
+        if (!isPaused && container) {
+          container.scrollLeft += speed;
+          var singleSetWidth = container.scrollWidth / 3;
+          if (container.scrollLeft >= singleSetWidth * 2) {
+            container.scrollLeft -= singleSetWidth;
+          } else if (container.scrollLeft <= 10) {
+            container.scrollLeft += singleSetWidth;
+          }
+        }
+        animationFrameId = requestAnimationFrame(autoScroll);
+      }
+
+      // Posição inicial no terço central para permitir rolagem infinita para ambos os lados
+      setTimeout(function() {
+        if (container && container.scrollWidth > container.clientWidth) {
+          container.scrollLeft = container.scrollWidth / 3;
+        }
+        animationFrameId = requestAnimationFrame(autoScroll);
+      }, 250);
+
+      // Ação da Seta Direita (➡️ Próximo)
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          pauseTemporarily(3500);
+          var card = container.querySelector('.treatment-loop-card');
+          var step = card ? (card.offsetWidth + 20) : 280;
+          container.scrollBy({ left: step, behavior: 'smooth' });
+        });
+      }
+
+      // Ação da Seta Esquerda (⬅️ Anterior)
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          pauseTemporarily(3500);
+          var card = container.querySelector('.treatment-loop-card');
+          var step = card ? (card.offsetWidth + 20) : 280;
+          container.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+      }
+
+      // NO CELULAR (Touch): Pausa enquanto toca, e RETOMA AUTOMATICAMENTE ao soltar!
+      container.addEventListener('touchstart', function() {
+        isPaused = true;
+        if (resumeTimer) clearTimeout(resumeTimer);
+      }, { passive: true });
+
+      container.addEventListener('touchend', function() {
+        pauseTemporarily(2000); // 2 segundos após tirar o dedo, volta a rodar suavemente!
+      }, { passive: true });
+
+      // No Desktop: pausa com hover do mouse e retoma ao sair
+      container.addEventListener('mouseenter', function() {
+        isPaused = true;
+      });
+      container.addEventListener('mouseleave', function() {
+        isPaused = false;
+      });
+
+      // Toque no card para alternar overlay de procedimentos no celular
+      var cards = container.querySelectorAll('.treatment-loop-card');
       cards.forEach(function(card) {
-        card.addEventListener('touchstart', function(e) {
-          // Remove de outros
-          cards.forEach(function(c) { if (c !== card) c.classList.remove('touch-active'); });
-          card.classList.toggle('touch-active');
-        }, { passive: true });
+        card.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A' || e.target.closest('a')) return;
+          var wasActive = card.classList.contains('touch-active');
+          cards.forEach(function(c) { c.classList.remove('touch-active'); });
+          if (!wasActive) {
+            card.classList.add('touch-active');
+            pauseTemporarily(4000); // Dá tempo para ler e retoma
+          }
+        });
       });
     })();
   </script>
