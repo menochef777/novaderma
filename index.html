@@ -2066,11 +2066,8 @@ body {
 
 <style>
   /* ==========================================================================
-     NAVBAR SHINO BAY AUTÊNTICA (100% FIEL À REFERÊNCIA DO USUÁRIO)
-     DESKTOP & CELULAR: PILL FLUTUANTE, LOGO À ESQUERDA, LINKS E BOTÃO À DIREITA
+     NAVBAR SHINO BAY (100% FIEL AO PRINT: LOGO NÍTIDA À ESQUERDA, LINKS E BOTÃO À DIREITA)
      ========================================================================== */
-
-  /* Neutraliza qualquer wrapper do HubSpot para garantir ancoragem direta na viewport */
   div[data-global-resource-path*="header.html"],
   div[data-global-resource-path*="header.html"] > header,
   #hs_cos_wrapper_site_header {
@@ -2081,20 +2078,20 @@ body {
     display: block !important;
   }
 
-  /* O PILL SHINO BAY: FIXADO NO TOPO, 100% CENTRALIZADO NA TELA (left: 50% + translateX(-50%)) */
+  /* O PILL FLUTUANTE SHINO BAY: CENTRALIZADO NA VIEWPORT, SLIM E DE LUXO */
   .header {
     position: fixed !important;
     top: 20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: calc(100% - 48px) !important;
-    max-width: 1260px !important;
-    height: 64px !important;
+    max-width: 1240px !important;
+    height: 62px !important;
     background: #00152C !important;
     border-radius: 100px !important;
     box-shadow: 0 10px 30px rgba(0, 15, 35, 0.6) !important;
-    border: 1px solid rgba(255, 255, 255, 0.14) !important;
-    padding: 0 28px !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    padding: 0 26px !important;
     margin: 0 !important;
     z-index: 999999 !important;
     display: flex !important;
@@ -2102,15 +2099,7 @@ body {
     box-sizing: border-box !important;
   }
 
-  .header__primary {
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
+  .header__primary,
   .header__row {
     width: 100% !important;
     height: 100% !important;
@@ -2121,7 +2110,7 @@ body {
     padding: 0 !important;
   }
 
-  /* LOGO À ESQUERDA - LIMPA, NÍTIDA E PROPORCIONAL */
+  /* LOGO À ESQUERDA (NÍTIDA, BRANCA, COM NOME NOVADERMA) */
   .header__col--logo {
     flex-shrink: 0 !important;
     display: flex !important;
@@ -2136,22 +2125,39 @@ body {
     height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    text-decoration: none !important;
   }
 
-  .header__logo--primary {
+  .header-brand-wrap {
     display: flex !important;
     align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
   }
 
-  .header__logo--primary img {
-    height: 30px !important;
-    width: auto !important;
-    max-width: 140px !important;
+  .header-brand-title {
+    font-family: 'Encode Sans Expanded', 'Playfair Display', Georgia, serif !important;
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    letter-spacing: 2px !important;
+    color: #ffffff !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
     display: block !important;
-    object-fit: contain !important;
   }
 
-  /* BLOCO DA DIREITA: LINKS + BOTÃO AGENDAR CONSULTA */
+  .header-brand-sub {
+    font-family: 'Manrope', sans-serif !important;
+    font-size: 8px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    color: #EF6B51 !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-top: 2px !important;
+  }
+
+  /* MENU À DIREITA */
   .header__col.header__nav {
     display: flex !important;
     align-items: center !important;
@@ -2203,12 +2209,12 @@ body {
     margin-left: 3px !important;
   }
 
-  /* BOTÃO AZUL "AGENDAR CONSULTA" À DIREITA */
+  /* BOTÃO AZUL "AGENDAR CONSULTA" */
   .header .button-nav,
   .header .button--secondary {
     background: #2563eb !important;
     color: #ffffff !important;
-    padding: 10px 22px !important;
+    padding: 9px 22px !important;
     border-radius: 30px !important;
     font-size: 13.5px !important;
     font-weight: 700 !important;
@@ -2218,7 +2224,7 @@ body {
     align-items: center !important;
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.45) !important;
     transition: background 0.2s ease, transform 0.2s ease !important;
-    margin-left: 6px !important;
+    margin-left: 8px !important;
   }
 
   .header .button-nav:hover,
@@ -2227,15 +2233,11 @@ body {
     transform: translateY(-1px) !important;
   }
 
-  /* ESCONDE AÇÕES MOBILE NO DESKTOP */
   .mobile-header-actions {
     display: none !important;
   }
 
-  /* ==========================================================================
-     REGRAS CELULAR (MOBILE: ANDROID & IOS)
-     PILL IDÊNTICO NO TOPO, LOGO À ESQUERDA, BOTÃO AGENDAR À DIREITA
-     ========================================================================== */
+  /* CELULAR (MOBILE: ANDROID & IOS) */
   @media screen and (max-width: 991px) {
     .header {
       top: 14px !important;
@@ -2243,23 +2245,24 @@ body {
       transform: translateX(-50%) !important;
       width: calc(100% - 24px) !important;
       max-width: 440px !important;
-      height: 54px !important;
+      height: 52px !important;
       padding: 0 16px !important;
       border-radius: 100px !important;
       background: #00152C !important;
     }
 
-    .header__logo--primary img {
-      height: 24px !important;
-      max-width: 105px !important;
+    .header-brand-title {
+      font-size: 16px !important;
+      letter-spacing: 1.5px !important;
+    }
+    .header-brand-sub {
+      display: none !important;
     }
 
-    /* Esconde a lista de links no pill do mobile para não quebrar */
     .header:not(.menu--mega) .header__nav--primary-wrap {
       display: none !important;
     }
 
-    /* Mostra o botão Agendar e o Menu hambúrguer no canto direito do pill */
     .mobile-header-actions {
       display: flex !important;
       align-items: center !important;
@@ -2269,9 +2272,9 @@ body {
     .mobile-cta-btn {
       background: #2563eb !important;
       color: #ffffff !important;
-      padding: 7px 15px !important;
+      padding: 6px 14px !important;
       border-radius: 20px !important;
-      font-size: 12px !important;
+      font-size: 11.5px !important;
       font-weight: 700 !important;
       text-decoration: none !important;
       white-space: nowrap !important;
@@ -2283,14 +2286,13 @@ body {
       background: transparent !important;
       border: none !important;
       color: #ffffff !important;
-      font-size: 17px !important;
+      font-size: 16px !important;
       padding: 4px 6px !important;
       cursor: pointer !important;
       display: flex !important;
       align-items: center !important;
     }
 
-    /* Menu Fullscreen ao abrir no celular */
     .header.active .header__nav--primary-wrap {
       display: block !important;
       position: fixed !important;
@@ -2304,13 +2306,11 @@ body {
       padding: 90px 24px 40px 24px !important;
       overflow-y: auto !important;
     }
-
     .header.active .header__nav--primary-wrap .primary-nav {
       flex-direction: column !important;
       align-items: center !important;
       gap: 22px !important;
     }
-
     .header.active .header__nav--primary-wrap .primary-nav > li > a {
       font-size: 18px !important;
     }
@@ -2668,10 +2668,12 @@ body {
 <div class="header__row">
 <div class="header__col header__col--logo">
 <div class="header__logo">
-<a href="index.html"></a>
-<div class="header__logo--primary">
-<img alt="NovaDerma - Clínica Dermatológica" loading="lazy" src="images/novaderma_logo.svg" style="max-width: 100%; height: auto;" loading="eager" fetchpriority="high"/>
-</div>
+<a class="header-brand-wrap" href="index.html">
+  <div>
+    <span class="header-brand-title">NOVADERMA</span>
+    <span class="header-brand-sub">Clínica Dermatológica</span>
+  </div>
+</a>
 </div>
 </div>
 <div class="header__col header__nav header__nav--primary">
@@ -2812,8 +2814,8 @@ body {
     <p class="interactive-cards-description" style="font-size: 15.5px; color: #4A5568; line-height: 1.65; max-width: 720px; margin: 0 auto; font-family: 'Manrope', sans-serif;">Procedimentos médicos individualizados e tecnologias padrão ouro desenvolvidos para realçar a sua melhor versão com naturalidade e segurança.</p>
   </div>
 
-  <!-- CAROUSEL MOTION COM NAVEGAÇÃO POR SETAS E RETOMADA AUTOMÁTICA -->
-  <div class="treatments-carousel-wrapper" style="position: relative; width: 100%; margin: 10px 0 25px 0;">
+  <!-- CAROUSEL MOTION COM ROLAGEM LIMPA (SEM NENHUM BOTÃO TAPANDO AS FOTOS) -->
+  <div class="treatments-carousel-wrapper" style="position: relative; width: 100%; margin: 10px 0 10px 0;">
     <style>
       .treatments-carousel-wrapper {
         position: relative;
@@ -2828,7 +2830,7 @@ body {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        padding: 15px 0 25px 0;
+        padding: 10px 0 20px 0;
         cursor: grab;
       }
       .treatments-scroll-container::-webkit-scrollbar {
@@ -2841,45 +2843,8 @@ body {
         display: flex;
         gap: 22px;
         width: max-content;
-        padding: 0 45px;
+        padding: 0 15px;
         will-change: transform;
-      }
-
-      /* SETAS DE NAVEGAÇÃO FLUTUANTES (ESQUERDA E DIREITA) */
-      .treatments-nav-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: rgba(0, 21, 44, 0.88);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 10;
-        box-shadow: 0 8px 25px rgba(0, 15, 35, 0.5);
-        transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-      }
-      .treatments-nav-btn:hover {
-        background: #2763cb;
-        border-color: #2763cb;
-        transform: translateY(-50%) scale(1.1);
-        box-shadow: 0 10px 30px rgba(39, 99, 203, 0.6);
-      }
-      .treatments-nav-btn:active {
-        transform: translateY(-50%) scale(0.95);
-      }
-      .treatments-nav-btn.prev-btn {
-        left: 12px;
-      }
-      .treatments-nav-btn.next-btn {
-        right: 12px;
       }
 
       /* Card Styling */
@@ -2971,24 +2936,41 @@ body {
         border-bottom-color: #60a5fa;
       }
 
-      /* Gradientes suaves de fusão nas pontas */
-      .treatments-carousel-wrapper::before,
-      .treatments-carousel-wrapper::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 50px;
-        z-index: 5;
-        pointer-events: none;
+      /* SETINHAS BRANCAS DE VIDRO PROFISSIONAIS EMBAIXO DOS CARDS */
+      .treatments-bottom-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 18px;
       }
-      .treatments-carousel-wrapper::before {
-        left: 0;
-        background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+      .glass-arrow-btn {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 21, 44, 0.12);
+        color: #00152C;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba(0, 21, 44, 0.08);
+        transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
       }
-      .treatments-carousel-wrapper::after {
-        right: 0;
-        background: linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+      .glass-arrow-btn:hover {
+        background: #00152C;
+        border-color: #00152C;
+        transform: translateY(-2px) scale(1.06);
+        box-shadow: 0 8px 25px rgba(0, 21, 44, 0.25);
+      }
+      .glass-arrow-btn:hover svg polyline {
+        stroke: #ffffff;
+      }
+      .glass-arrow-btn:active {
+        transform: translateY(0) scale(0.95);
       }
 
       @media screen and (max-width: 768px) {
@@ -2999,30 +2981,14 @@ body {
         }
         .treatments-track {
           gap: 16px !important;
-          padding: 0 16px !important;
+          padding: 0 10px !important;
         }
-        .treatments-nav-btn {
-          width: 40px !important;
-          height: 40px !important;
-          background: rgba(0, 21, 44, 0.92) !important;
-        }
-        .treatments-nav-btn.prev-btn {
-          left: 4px !important;
-        }
-        .treatments-nav-btn.next-btn {
-          right: 4px !important;
-        }
-        .treatments-carousel-wrapper::before,
-        .treatments-carousel-wrapper::after {
-          width: 25px !important;
+        .glass-arrow-btn {
+          width: 42px !important;
+          height: 42px !important;
         }
       }
     </style>
-
-    <!-- Seta Esquerda (⬅️) -->
-    <button id="treatmentsPrevBtn" class="treatments-nav-btn prev-btn" aria-label="Ver Tratamento Anterior">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    </button>
 
     <!-- Container com Rolagem Livre e Suave -->
     <div id="treatmentsScrollContainer" class="treatments-scroll-container">
@@ -3381,10 +3347,15 @@ body {
       </div>
     </div>
 
-    <!-- Seta Direita (➡️) -->
-    <button id="treatmentsNextBtn" class="treatments-nav-btn next-btn" aria-label="Ver Próximo Tratamento">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </button>
+    <!-- SETINHAS BRANCAS DE VIDRO EMBAIXO DOS CARDS -->
+    <div class="treatments-bottom-controls">
+      <button id="treatmentsPrevBtn" class="glass-arrow-btn" aria-label="Ver Tratamento Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00152C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button id="treatmentsNextBtn" class="glass-arrow-btn" aria-label="Ver Próximo Tratamento">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00152C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
   </div>
 
   <!-- CONTROLADOR JAVASCRIPT: MOVIMENTO SUAVE, CONTROLE POR SETAS E RETOMADA AUTOMÁTICA -->
@@ -3423,7 +3394,7 @@ body {
         animationFrameId = requestAnimationFrame(autoScroll);
       }
 
-      // Posição inicial no terço central para permitir rolagem infinita para ambos os lados
+      // Posição inicial no terço central
       setTimeout(function() {
         if (container && container.scrollWidth > container.clientWidth) {
           container.scrollLeft = container.scrollWidth / 3;
@@ -3431,7 +3402,7 @@ body {
         animationFrameId = requestAnimationFrame(autoScroll);
       }, 250);
 
-      // Ação da Seta Direita (➡️ Próximo)
+      // Seta Direita (➡️ Próximo)
       if (nextBtn) {
         nextBtn.addEventListener('click', function(e) {
           e.preventDefault();
@@ -3442,7 +3413,7 @@ body {
         });
       }
 
-      // Ação da Seta Esquerda (⬅️ Anterior)
+      // Seta Esquerda (⬅️ Anterior)
       if (prevBtn) {
         prevBtn.addEventListener('click', function(e) {
           e.preventDefault();
