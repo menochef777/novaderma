@@ -10,3 +10,8 @@ raw_original.html
 .vscode/
 .idea/
 
+
+scratch/
+*.backup*
+__pycache__/
+*.log
