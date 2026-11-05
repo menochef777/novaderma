@@ -1838,8 +1838,138 @@ body {
   left: -9999px !important;
 }
 
+/* ==========================================================================
+   INSTAGRAM GRID DESKTOP & MOBILE SWIPE CAROUSEL
+   ========================================================================== */
+.instagram-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.insta-post-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 9/13;
+  display: block;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.insta-post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+}
+
 /* Tablet & Mobile Breakpoints */
 @media screen and (max-width: 991px) {
+  /* Elimina faixa branca e ajusta espaçamento perfeito dos especialistas no celular */
+  #especialistas, .row-number-5, .row-number-7 {
+    padding: 10px 0 !important;
+  }
+  .doctor-card-wrap {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 28px 18px 24px 18px !important;
+    min-height: auto !important;
+    border-radius: 28px !important;
+    margin: 0 auto 18px auto !important;
+    max-width: 94% !important;
+  }
+  .doctor-image-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto 12px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  /* Proporção perfeita da foto dos médicos sem ocupar a tela inteira */
+  .doctor-image-col img {
+    margin: 0 auto !important;
+    max-height: 240px !important;
+    width: auto !important;
+    max-width: 82% !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)) !important;
+  }
+  .doctor-content-col {
+    width: 100% !important;
+    padding: 6px 0 0 0 !important;
+    text-align: center !important;
+  }
+  .doctor-content-col span {
+    font-size: 11px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+  }
+  .doctor-content-col h3 {
+    font-size: 40px !important;
+    margin: 0 0 12px 0 !important;
+    line-height: 1.1 !important;
+  }
+  .doctor-content-col p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 16px !important;
+    opacity: 0.92 !important;
+  }
+  .doctor-content-col blockquote {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    padding: 8px 14px !important;
+    margin: 14px 0 !important;
+    border-left: 2px solid #2763cb !important;
+    text-align: left !important;
+    background: rgba(255,255,255,0.03) !important;
+    border-radius: 0 10px 10px 0 !important;
+  }
+  .doctor-content-col .hs-button {
+    width: 100% !important;
+    max-width: 280px !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    display: inline-block !important;
+  }
+
+  /* Instagram no Mobile: Touch Carousel Fluido sem quebra de texto */
+  .instagram-swipe-indicator {
+    display: flex !important;
+  }
+  .instagram-cards-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    padding: 10px 15px 25px 15px !important;
+    margin: 0 -20px 25px -20px !important;
+    scrollbar-width: none !important;
+  }
+  .instagram-cards-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+  .insta-post-card {
+    flex: 0 0 240px !important;
+    width: 240px !important;
+    min-width: 240px !important;
+    scroll-snap-align: center !important;
+    border-radius: 20px !important;
+    aspect-ratio: 9/13 !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45) !important;
+  }
+  .insta-post-title {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
   .doctor-card-wrap {
     flex-direction: column !important;
     align-items: center !important;
@@ -2168,7 +2298,7 @@ body {
 </div><!--end row-->
 </div><!--end row-wrapper -->
 <!-- SEÇÃO 1: DR. ANDRÉ TOSCANO -->
-<div class="row-fluid-wrapper row-depth-1 row-number-5 dnd_area-row-2-force-full-width-section dnd-section" id="especialistas" style="padding: 60px 0 30px 0;">
+<div class="row-fluid-wrapper row-depth-1 row-number-5 dnd_area-row-2-force-full-width-section dnd-section" id="especialistas" style="padding: 50px 0 16px 0;">
 <div class="row-fluid">
 <div class="span12 widget-span widget-type-cell dnd-column" data-w="12" data-widget-type="cell" data-x="0">
 <div class="row-fluid-wrapper row-depth-1 row-number-6 dnd-row">
@@ -2206,7 +2336,7 @@ body {
 </div>
 
 <!-- SEÇÃO 2: DRA. ALINE DUARTE -->
-<div class="row-fluid-wrapper row-depth-1 row-number-7 dnd-section" style="padding: 30px 0 60px 0;">
+<div class="row-fluid-wrapper row-depth-1 row-number-7 dnd-section" style="padding: 16px 0 50px 0;">
 <div class="row-fluid">
 <div class="span12 widget-span widget-type-cell dnd-column" data-w="12" data-widget-type="cell" data-x="0">
 <div class="row-fluid-wrapper row-depth-1 row-number-8 dnd-row">
@@ -2401,7 +2531,11 @@ body {
   </div>
 
   <!-- 4 Cards Verticais com os posts reais de Dra. Aline e Dr. André do Instagram @clinicanovaderma -->
-  <div class="instagram-cards-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px;">
+  <!-- Grid no Desktop & Carrossel Swipe no Mobile -->
+  <div class="instagram-swipe-indicator" style="display: none; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,0.6); font-size: 12px; font-family: 'Manrope', sans-serif; margin-bottom: 18px;">
+    <span>👈</span> Deslize para explorar os posts <span>👉</span>
+  </div>
+  <div class="instagram-cards-grid">
     
     <!-- Post 1: Dra. Aline Chaves -->
     <a href="https://www.instagram.com/dra.alinechaves/reel/DfH2vA6Bw5o/" target="_blank" rel="noopener" class="insta-post-card" style="position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 9/13; display: block; text-decoration: none; box-shadow: 0 12px 30px rgba(0,0,0,0.4); transition: transform 0.3s ease, box-shadow 0.3s ease;">
@@ -2410,7 +2544,7 @@ body {
         <div style="align-self: flex-end; width: 32px; height: 32px; background: rgba(255,255,255,0.22); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff;">
           <i class="fab fa-instagram" style="font-size: 15px;"></i>
         </div>
-        <div style="color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.35; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">
+        <div style="color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.35; text-shadow: 0 2px 4px rgba(0,0,0,0.6);" class="insta-post-title">
           Dra. Aline Chaves • Procedimentos e Cuidado da Pele
         </div>
       </div>
@@ -2423,7 +2557,7 @@ body {
         <div style="align-self: flex-end; width: 32px; height: 32px; background: rgba(255,255,255,0.22); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff;">
           <i class="fab fa-instagram" style="font-size: 15px;"></i>
         </div>
-        <div style="color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.35; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">
+        <div style="color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.35; text-shadow: 0 2px 4px rgba(0,0,0,0.6);" class="insta-post-title">
           Dr. André Toscano • Dermatologia Clínica &amp; Cirúrgica
         </div>
       </div>
@@ -2436,7 +2570,7 @@ body {
         <div style="align-self: flex-end; width: 32px; height: 32px; background: rgba(255,255,255,0.22); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff;">
           <i class="fab fa-instagram" style="font-size: 15px;"></i>
         </div>
-        <div style="color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.35; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">
+        <div style="color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.35; text-shadow: 0 2px 4px rgba(0,0,0,0.6);" class="insta-post-title">
           Dra. Aline Chaves • Harmonização e Protocolos Individuais
         </div>
       </div>
@@ -2449,7 +2583,7 @@ body {
         <div style="align-self: flex-end; width: 32px; height: 32px; background: rgba(255,255,255,0.22); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff;">
           <i class="fab fa-instagram" style="font-size: 15px;"></i>
         </div>
-        <div style="color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.35; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">
+        <div style="color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.35; text-shadow: 0 2px 4px rgba(0,0,0,0.6);" class="insta-post-title">
           Dr. André Toscano • Diagnósticos Precisos e Excelência Médica
         </div>
       </div>
