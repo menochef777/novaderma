@@ -2066,119 +2066,172 @@ body {
 
 <style>
   /* ==========================================================================
-     NAVBAR SHINO: IDÊNTICA NO COMPUTADOR E NO CELULAR (PILL DE LUXO NO TOPO)
+     NAVBAR SHINO: MATEMATICAMENTE CENTRALIZADA, SLIM, ELEGANTE E PROPORCIONAL
      ========================================================================== */
-  div[data-global-resource-path*="header.html"] {
+  div[data-global-resource-path*="header.html"],
+  header {
     position: absolute !important;
-    top: 20px !important;
+    top: 0 !important;
     left: 0 !important;
-    right: 0 !important;
     width: 100% !important;
     z-index: 999999 !important;
-    display: flex !important;
-    justify-content: center !important;
     pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
   }
+
+  /* O PILL DA NAVBAR: CENTRALIZAÇÃO MATEMÁTICA PERFEITA (left: 50% + translateX(-50%)) */
   .header {
     pointer-events: auto !important;
-    position: relative !important;
-    left: auto !important;
-    transform: none !important;
-    margin: 0 auto !important;
-    max-width: 1240px !important;
-    width: 95% !important;
-    z-index: 999999 !important;
-    background: #00152C !important;
-    border-radius: 40px !important;
-    box-shadow: 0 10px 30px rgba(0, 15, 35, 0.55) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    padding: 6px 24px !important;
+    position: absolute !important;
+    top: 24px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 92% !important;
+    max-width: 1180px !important;
+    height: 62px !important;
+    background: rgba(0, 21, 44, 0.94) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 50px !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow: 0 12px 35px rgba(0, 15, 35, 0.55) !important;
+    padding: 0 24px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
   }
-  .header .header__row {
+
+  .header__primary,
+  .header__row {
+    width: 100% !important;
+    height: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
-  .header .header__col--logo {
+
+  /* LOGO PROPORCIONAL À ESQUERDA */
+  .header__col--logo {
     flex-shrink: 0 !important;
     display: flex !important;
     align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
-  .header .header__logo {
+
+  .header__logo {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .header__logo--primary {
     display: flex !important;
     align-items: center !important;
   }
-  .header .header__logo img {
-    height: 32px !important;
+
+  .header__logo--primary img {
+    height: 28px !important;
     width: auto !important;
+    max-width: 135px !important;
     display: block !important;
+    object-fit: contain !important;
   }
-  .header .primary-nav {
+
+  /* MENU CENTRALIZADO EM LINHA */
+  .header__col.header__nav {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .header__nav--primary-wrap {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .primary-nav {
     display: flex !important;
     align-items: center !important;
     flex-wrap: nowrap !important;
-    gap: 18px !important;
+    gap: 20px !important;
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
   }
-  .header .primary-nav > li {
+
+  .primary-nav > li {
     white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
-  .header .primary-nav > li > a {
-    white-space: nowrap !important;
-    font-size: 13.5px !important;
+
+  .primary-nav > li > a {
     color: #ffffff !important;
-    text-decoration: none !important;
+    font-size: 13px !important;
     font-weight: 500 !important;
+    text-decoration: none !important;
+    font-family: 'Manrope', sans-serif !important;
     transition: color 0.2s ease !important;
   }
-  .header .primary-nav > li > a:hover {
-    color: #a2c4ff !important;
+
+  .primary-nav > li > a:hover {
+    color: #8cb7ff !important;
   }
+
+  /* BOTÃO À DIREITA */
   .header .button-nav,
   .header .button--secondary {
-    white-space: nowrap !important;
-    background-color: #2763cb !important;
+    background: #2763cb !important;
     color: #ffffff !important;
-    padding: 9px 22px !important;
-    border-radius: 30px !important;
-    font-size: 13px !important;
+    padding: 9px 20px !important;
+    border-radius: 25px !important;
+    font-size: 12.5px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
-    flex-shrink: 0 !important;
+    white-space: nowrap !important;
     display: inline-flex !important;
     align-items: center !important;
-    box-shadow: 0 4px 15px rgba(39, 99, 203, 0.4) !important;
-    transition: background-color 0.2s ease, transform 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(39, 99, 203, 0.45) !important;
+    transition: transform 0.2s ease, background 0.2s ease !important;
   }
+
   .header .button-nav:hover,
   .header .button--secondary:hover {
-    background-color: #1e50a8 !important;
+    background: #1d50a8 !important;
     transform: translateY(-1px) !important;
   }
 
-  /* BOTÃO E MENU MOBILE (VISÍVEL NO CELULAR) */
+  /* ESCONDE AÇÕES MOBILE NO DESKTOP */
   .mobile-header-actions {
-    display: none;
+    display: none !important;
   }
 
-  /* REGRAS MOBILE ESPECÍFICAS (ANDROID & IOS): MANTÉM O PILL DE LUXO FLUTUANTE IDÊNTICO AO COMPUTADOR */
+  /* CELULAR & TABLET (ANDROID & IOS): PILL COMPACTO, PROPORCIONAL E CENTRALIZADO */
   @media screen and (max-width: 991px) {
-    div[data-global-resource-path*="header.html"] {
-      top: 14px !important;
-      padding: 0 10px !important;
-    }
     .header {
-      width: 94% !important;
+      top: 14px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 92% !important;
       max-width: 440px !important;
-      padding: 6px 14px 6px 16px !important;
+      height: 52px !important;
+      padding: 0 16px !important;
       border-radius: 35px !important;
     }
-    .header .header__logo img {
-      height: 26px !important;
-      max-width: 100px !important;
+    .header__logo--primary img {
+      height: 24px !important;
+      max-width: 105px !important;
     }
     .header:not(.menu--mega) .header__nav--primary-wrap {
       display: none !important;
@@ -2210,7 +2263,6 @@ body {
       display: flex !important;
       align-items: center !important;
     }
-    /* Estilo do menu expansível mobile quando ativo */
     .header.active .header__nav--primary-wrap {
       display: block !important;
       position: fixed !important;
@@ -2585,7 +2637,7 @@ body {
 <div class="header__primary">
 <div class="header__row">
 <div class="header__col header__col--logo">
-<div class="header__logo" style="width:145px;height:73px;display:flex;align-items:center;justify-content:center;">
+<div class="header__logo">
 <a href="index.html"></a>
 <div class="header__logo--primary">
 <img alt="NovaDerma - Clínica Dermatológica" loading="lazy" src="images/novaderma_logo.svg" style="max-width: 100%; height: auto;" loading="eager" fetchpriority="high"/>
