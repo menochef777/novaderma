@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<!-- PERFORMANCE & SCROLL RESET TO TOP (APRESENTAÇÃO CLIENTE) -->
+<script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+  document.addEventListener('DOMContentLoaded', function() {
+    window.scrollTo(0, 0);
+  });
+  window.addEventListener('beforeunload', function() {
+    window.scrollTo(0, 0);
+  });
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="images/novaderma_logo.svg" as="image" type="image/svg+xml" fetchpriority="high">
 <!-- Fonte Geist (Google Fonts) para Seção Kollektiva -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1693,8 +1709,6 @@ padding-left: 0px;
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","caption":{"@type":"MediaObject","contentUrl":"https://novaderma.com.br/media-transcripts/198981121797/en.vtt","inLanguage":"en","name":"en Captions"},"contentUrl":"https://6537727.fs1.hubspotusercontent-na1.net/hubfs/6537727/Shino%20Bay%20Hero%20Video_Homepage.mp4","dateModified":"2025-11-03T16:07:16.811Z","duration":"PT43S","height":1080,"name":"Shino Bay Hero Video_Homepage","thumbnailUrl":"https://www.skinmatters.ca/hubfs/Shino%20Bay%20Hero%20Video_Homepage.mp4/medium.jpg","uploadDate":"2025-11-03T15:53:25.552Z","width":1920}</script>
 
 <link href="index.html" rel="canonical"/>
-<link as="font" crossorigin="" href="/_hcms/googlefonts/Tangerine/regular.woff2" rel="preload" type="font/woff2"/>
-<link as="font" crossorigin="" href="/_hcms/googlefonts/Tangerine/700.woff2" rel="preload" type="font/woff2"/>
 <meta content="images/novaderma-doutores-faq.jpg" property="og:image"/>
 <meta content="165" property="og:image:width"/>
 <meta content="165" property="og:image:height"/>
@@ -2484,7 +2498,7 @@ body {
 <div class="header__logo" style="width:145px;height:73px;display:flex;align-items:center;justify-content:center;">
 <a href="index.html"></a>
 <div class="header__logo--primary">
-<img alt="NovaDerma - Clínica Dermatológica" loading="lazy" src="images/novaderma_logo.svg" style="max-width: 100%; height: auto;"/>
+<img alt="NovaDerma - Clínica Dermatológica" loading="lazy" src="images/novaderma_logo.svg" style="max-width: 100%; height: auto;" loading="eager" fetchpriority="high"/>
 </div>
 </div>
 </div>
@@ -3753,6 +3767,10 @@ body {
 <script>
   (function() {
     function initPinnedCardsStack() {
+      // Garante topo limpo no recarregamento
+      if (window.scrollY === 0) {
+        window.scrollTo(0, 0);
+      }
       if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
         console.warn('GSAP or ScrollTrigger not loaded yet');
         return;
