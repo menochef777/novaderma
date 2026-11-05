@@ -2066,45 +2066,51 @@ body {
 
 <style>
   /* ==========================================================================
-     NAVBAR SHINO: MATEMATICAMENTE CENTRALIZADA, SLIM, ELEGANTE E PROPORCIONAL
+     NAVBAR SHINO BAY AUTÊNTICA (100% FIEL À REFERÊNCIA DO USUÁRIO)
+     DESKTOP & CELULAR: PILL FLUTUANTE, LOGO À ESQUERDA, LINKS E BOTÃO À DIREITA
      ========================================================================== */
+
+  /* Neutraliza qualquer wrapper do HubSpot para garantir ancoragem direta na viewport */
   div[data-global-resource-path*="header.html"],
-  header {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
+  div[data-global-resource-path*="header.html"] > header,
+  #hs_cos_wrapper_site_header {
+    position: static !important;
     width: 100% !important;
-    z-index: 999999 !important;
-    pointer-events: none !important;
     margin: 0 !important;
     padding: 0 !important;
     display: block !important;
   }
 
-  /* O PILL DA NAVBAR: CENTRALIZAÇÃO MATEMÁTICA PERFEITA (left: 50% + translateX(-50%)) */
+  /* O PILL SHINO BAY: FIXADO NO TOPO, 100% CENTRALIZADO NA TELA (left: 50% + translateX(-50%)) */
   .header {
-    pointer-events: auto !important;
-    position: absolute !important;
-    top: 24px !important;
+    position: fixed !important;
+    top: 20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 92% !important;
-    max-width: 1180px !important;
-    height: 62px !important;
-    background: rgba(0, 21, 44, 0.94) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border-radius: 50px !important;
-    border: 1px solid rgba(255, 255, 255, 0.16) !important;
-    box-shadow: 0 12px 35px rgba(0, 15, 35, 0.55) !important;
-    padding: 0 24px !important;
+    width: calc(100% - 48px) !important;
+    max-width: 1260px !important;
+    height: 64px !important;
+    background: #00152C !important;
+    border-radius: 100px !important;
+    box-shadow: 0 10px 30px rgba(0, 15, 35, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    padding: 0 28px !important;
     margin: 0 !important;
+    z-index: 999999 !important;
     display: flex !important;
     align-items: center !important;
     box-sizing: border-box !important;
   }
 
-  .header__primary,
+  .header__primary {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .header__row {
     width: 100% !important;
     height: 100% !important;
@@ -2113,10 +2119,9 @@ body {
     justify-content: space-between !important;
     margin: 0 !important;
     padding: 0 !important;
-    box-sizing: border-box !important;
   }
 
-  /* LOGO PROPORCIONAL À ESQUERDA */
+  /* LOGO À ESQUERDA - LIMPA, NÍTIDA E PROPORCIONAL */
   .header__col--logo {
     flex-shrink: 0 !important;
     display: flex !important;
@@ -2129,7 +2134,6 @@ body {
     display: flex !important;
     align-items: center !important;
     height: 100% !important;
-    width: auto !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -2140,17 +2144,18 @@ body {
   }
 
   .header__logo--primary img {
-    height: 28px !important;
+    height: 30px !important;
     width: auto !important;
-    max-width: 135px !important;
+    max-width: 140px !important;
     display: block !important;
     object-fit: contain !important;
   }
 
-  /* MENU CENTRALIZADO EM LINHA */
+  /* BLOCO DA DIREITA: LINKS + BOTÃO AGENDAR CONSULTA */
   .header__col.header__nav {
     display: flex !important;
     align-items: center !important;
+    justify-content: flex-end !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -2164,7 +2169,7 @@ body {
     display: flex !important;
     align-items: center !important;
     flex-wrap: nowrap !important;
-    gap: 20px !important;
+    gap: 22px !important;
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -2178,37 +2183,47 @@ body {
 
   .primary-nav > li > a {
     color: #ffffff !important;
-    font-size: 13px !important;
+    font-size: 13.5px !important;
     font-weight: 500 !important;
     text-decoration: none !important;
     font-family: 'Manrope', sans-serif !important;
     transition: color 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
   }
 
   .primary-nav > li > a:hover {
     color: #8cb7ff !important;
   }
 
-  /* BOTÃO À DIREITA */
+  .primary-nav > li > i.fa-caret-down {
+    color: #ffffff !important;
+    font-size: 11px !important;
+    margin-left: 3px !important;
+  }
+
+  /* BOTÃO AZUL "AGENDAR CONSULTA" À DIREITA */
   .header .button-nav,
   .header .button--secondary {
-    background: #2763cb !important;
+    background: #2563eb !important;
     color: #ffffff !important;
-    padding: 9px 20px !important;
-    border-radius: 25px !important;
-    font-size: 12.5px !important;
-    font-weight: 600 !important;
+    padding: 10px 22px !important;
+    border-radius: 30px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
     text-decoration: none !important;
     white-space: nowrap !important;
     display: inline-flex !important;
     align-items: center !important;
-    box-shadow: 0 4px 15px rgba(39, 99, 203, 0.45) !important;
-    transition: transform 0.2s ease, background 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.45) !important;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+    margin-left: 6px !important;
   }
 
   .header .button-nav:hover,
   .header .button--secondary:hover {
-    background: #1d50a8 !important;
+    background: #1d4ed8 !important;
     transform: translateY(-1px) !important;
   }
 
@@ -2217,52 +2232,65 @@ body {
     display: none !important;
   }
 
-  /* CELULAR & TABLET (ANDROID & IOS): PILL COMPACTO, PROPORCIONAL E CENTRALIZADO */
+  /* ==========================================================================
+     REGRAS CELULAR (MOBILE: ANDROID & IOS)
+     PILL IDÊNTICO NO TOPO, LOGO À ESQUERDA, BOTÃO AGENDAR À DIREITA
+     ========================================================================== */
   @media screen and (max-width: 991px) {
     .header {
       top: 14px !important;
       left: 50% !important;
       transform: translateX(-50%) !important;
-      width: 92% !important;
+      width: calc(100% - 24px) !important;
       max-width: 440px !important;
-      height: 52px !important;
+      height: 54px !important;
       padding: 0 16px !important;
-      border-radius: 35px !important;
+      border-radius: 100px !important;
+      background: #00152C !important;
     }
+
     .header__logo--primary img {
       height: 24px !important;
       max-width: 105px !important;
     }
+
+    /* Esconde a lista de links no pill do mobile para não quebrar */
     .header:not(.menu--mega) .header__nav--primary-wrap {
       display: none !important;
     }
+
+    /* Mostra o botão Agendar e o Menu hambúrguer no canto direito do pill */
     .mobile-header-actions {
       display: flex !important;
       align-items: center !important;
       gap: 10px !important;
     }
+
     .mobile-cta-btn {
-      background: #2763cb !important;
+      background: #2563eb !important;
       color: #ffffff !important;
-      padding: 6px 14px !important;
+      padding: 7px 15px !important;
       border-radius: 20px !important;
-      font-size: 11.5px !important;
-      font-weight: 600 !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
       text-decoration: none !important;
       white-space: nowrap !important;
-      box-shadow: 0 3px 10px rgba(39, 99, 203, 0.4) !important;
+      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.45) !important;
       font-family: 'Manrope', sans-serif !important;
     }
+
     .mobile-menu-btn {
       background: transparent !important;
       border: none !important;
       color: #ffffff !important;
-      font-size: 16px !important;
+      font-size: 17px !important;
       padding: 4px 6px !important;
       cursor: pointer !important;
       display: flex !important;
       align-items: center !important;
     }
+
+    /* Menu Fullscreen ao abrir no celular */
     .header.active .header__nav--primary-wrap {
       display: block !important;
       position: fixed !important;
@@ -2271,16 +2299,18 @@ body {
       width: 100vw !important;
       height: 100vh !important;
       background: rgba(0, 15, 35, 0.98) !important;
-      backdrop-filter: blur(20px) !important;
+      backdrop-filter: blur(25px) !important;
       z-index: 9999999 !important;
-      padding: 80px 24px 40px 24px !important;
+      padding: 90px 24px 40px 24px !important;
       overflow-y: auto !important;
     }
+
     .header.active .header__nav--primary-wrap .primary-nav {
       flex-direction: column !important;
       align-items: center !important;
-      gap: 20px !important;
+      gap: 22px !important;
     }
+
     .header.active .header__nav--primary-wrap .primary-nav > li > a {
       font-size: 18px !important;
     }
