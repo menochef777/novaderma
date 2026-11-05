@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 65" width="190" height="65">
+  <g transform="translate(10, 10)">
+    <rect x="2" y="6" width="32" height="32" rx="8" fill="#00995D" opacity="0.14"/>
+    <path d="M10,22 L18,14 L26,22 L22,26 L18,22 L14,26 Z" fill="#00995D"/>
+    <text x="44" y="26" fill="#00995D" font-family="'Manrope', sans-serif" font-size="18" font-weight="800" letter-spacing="-0.3px">Unimed</text>
+    <text x="45" y="38" fill="#555555" font-family="'Manrope', sans-serif" font-size="8.5" font-weight="600" letter-spacing="1px">COOPERATIVA MÉDICA</text>
+  </g>
+</svg>

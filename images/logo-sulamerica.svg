@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 65" width="200" height="65">
+  <g transform="translate(10, 10)">
+    <circle cx="22" cy="22" r="20" fill="#FF5000" opacity="0.12"/>
+    <path d="M12,24 C14,16 20,12 28,14 C25,20 22,28 14,32 C12.5,29 11.5,26.5 12,24 Z" fill="#FF5000"/>
+    <path d="M22,12 C28,14 32,20 30,28 C26,26 22,22 22,12 Z" fill="#002D62"/>
+    <text x="50" y="24" fill="#002D62" font-family="'Manrope', sans-serif" font-size="16" font-weight="800" letter-spacing="-0.3px">SulAmérica</text>
+    <text x="50" y="38" fill="#FF5000" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="1.8px">SAÚDE</text>
+  </g>
+</svg>
