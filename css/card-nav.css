@@ -1,5 +1,5 @@
 /* ==========================================================================
-   REACT BITS - CARD NAV COMPONENT (CLONE AUTÊNTICO)
+   REACT BITS - CARD NAV COMPONENT (CLONE 100% AUTÊNTICO)
    Menu à Esquerda | Logo NovaDerma no Meio | WhatsApp à Direita
    ========================================================================== */
 
@@ -9,22 +9,22 @@
   --cn-edge: rgba(255, 255, 255, 0.16);
   --cn-highlight: rgba(255, 255, 255, 0.12);
   --cn-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.8), 0 6px 16px -8px rgba(0, 0, 0, 0.5);
-  --cn-text: #f4f4f5;
+  --cn-text: #ffffff;
   --cn-muted: rgba(244, 244, 245, 0.65);
-  --cn-hover: rgba(255, 255, 255, 0.08);
+  --cn-hover: rgba(255, 255, 255, 0.1);
   --cn-ring: rgba(37, 99, 235, 0.6);
-  --cn-tile: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --cn-tile: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
   --cn-tile-rim: inset 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 10px -4px rgba(0, 0, 0, 0.6);
   --cn-cta: #2563eb;
   --cn-cta-ink: #ffffff;
   --cn-cta-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 16px -6px rgba(37, 99, 235, 0.6);
-  --cn-cta-hover: brightness(1.12);
+  --cn-cta-hover: brightness(1.15);
   --cn-max: 860px;
   --cn-bar: 60px;
   --cn-inset: 8px;
   --cn-gap: 8px;
   --cn-radius: 18px;
-  --cn-logo: 32px;
+  --cn-logo: 36px;
   --cn-card: 180px;
   --cn-blur: blur(24px) saturate(1.8);
 }
@@ -84,7 +84,7 @@
   pointer-events: none !important;
 }
 
-/* A BARRA: MENU À ESQUERDA | LOGO NO MEIO | WHATSAPP À DIREITA */
+/* BARRA: 3 COLUNAS PERFEITAS (MENU ESQUERDA | LOGO MEIO | WHATSAPP DIREITA) */
 .card-nav__bar {
   position: relative !important;
   z-index: 2 !important;
@@ -103,19 +103,20 @@
   justify-self: start !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 10px !important;
   height: calc(var(--cn-bar) - var(--cn-inset) * 2) !important;
-  padding: 0 14px 0 14px !important;
+  padding: 0 16px !important;
   border: 0 !important;
   border-radius: calc(var(--cn-radius) - var(--cn-inset)) !important;
-  background: none !important;
-  color: var(--cn-text) !important;
+  background: transparent !important;
+  color: #ffffff !important;
   font-family: inherit !important;
-  font-size: 13.5px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
   cursor: pointer !important;
   outline: none !important;
   transition: background-color 0.2s ease !important;
+  box-sizing: border-box !important;
 }
 
 .card-nav__menu:hover {
@@ -134,29 +135,29 @@
   position: absolute !important;
   left: 0 !important;
   width: 100% !important;
-  height: 1.5px !important;
+  height: 2px !important;
   border-radius: 2px !important;
-  background: currentColor !important;
+  background-color: #ffffff !important;
   transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    top 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
 .card-nav__line--top {
-  top: 2.25px !important;
+  top: 2px !important;
 }
 
 .card-nav__line--bottom {
-  top: 8.25px !important;
+  top: 8px !important;
 }
 
 .card-nav[data-open] .card-nav__line--top {
-  top: 5.25px !important;
+  top: 5px !important;
   transform: rotate(45deg) !important;
 }
 
 .card-nav[data-open] .card-nav__line--bottom {
-  top: 5.25px !important;
+  top: 5px !important;
   transform: rotate(-45deg) !important;
 }
 
@@ -164,28 +165,38 @@
   position: relative !important;
   display: inline-grid !important;
   overflow: hidden !important;
-  font-size: 13.5px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
+  line-height: 1 !important;
 }
 
 .card-nav__word {
   grid-area: 1 / 1 !important;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  display: block !important;
+  color: #ffffff !important;
+}
+
+/* Estado Fechado: MENU visível, FECHAR abaixo escondido */
+.card-nav__word--open {
+  transform: translateY(0) !important;
 }
 
 .card-nav__word--close {
-  transform: translateY(110%) !important;
+  transform: translateY(120%) !important;
 }
 
+/* Estado Aberto: MENU sobe escondido, FECHAR entra */
 .card-nav[data-open] .card-nav__word--open {
-  transform: translateY(-110%) !important;
+  transform: translateY(-120%) !important;
 }
 
 .card-nav[data-open] .card-nav__word--close {
   transform: translateY(0) !important;
 }
 
-/* 2. LOGO NOVADERMA EXATAMENTE NO MEIO */
+/* 2. LOGO NOVADERMA EXATAMENTE NO MEIO (NÍTIDA, BRANCA, GRANDE) */
 .card-nav__logo {
   grid-column: 2 !important;
   justify-self: center !important;
@@ -193,20 +204,19 @@
   align-items: center !important;
   justify-content: center !important;
   height: var(--cn-logo) !important;
-  color: var(--cn-text) !important;
   text-decoration: none !important;
   outline: none !important;
   margin: 0 auto !important;
 }
 
-.card-nav__logo img,
-.card-nav__logo svg {
+.card-nav__logo img {
   display: block !important;
   height: 100% !important;
   width: auto !important;
-  max-height: 34px !important;
-  max-width: 160px !important;
+  max-height: 38px !important;
+  max-width: 175px !important;
   object-fit: contain !important;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3)) !important;
 }
 
 /* 3. BOTÃO WHATSAPP À DIREITA */
@@ -218,20 +228,21 @@
   justify-content: center !important;
   gap: 6px !important;
   height: calc(var(--cn-bar) - var(--cn-inset) * 2) !important;
-  padding: 0 16px !important;
+  padding: 0 18px !important;
   border: 0 !important;
   border-radius: calc(var(--cn-radius) - var(--cn-inset)) !important;
   background: var(--cn-cta) !important;
   box-shadow: var(--cn-cta-shadow) !important;
   color: var(--cn-cta-ink) !important;
   font-family: inherit !important;
-  font-size: 13px !important;
+  font-size: 13.5px !important;
   font-weight: 700 !important;
   white-space: nowrap !important;
   text-decoration: none !important;
   cursor: pointer !important;
   outline: none !important;
   transition: filter 0.2s ease, transform 0.2s ease !important;
+  box-sizing: border-box !important;
 }
 
 .card-nav__cta:hover {
@@ -239,31 +250,31 @@
   transform: translateY(-1px) !important;
 }
 
-/* ADAPTAÇÃO MOBILE (< 580px): MANTÉM MENU À ESQUERDA, LOGO NO MEIO, WHATSAPP À DIREITA */
+/* ADAPTAÇÃO MOBILE (< 580px) */
 @media screen and (max-width: 580px) {
   :root {
     --cn-bar: 56px;
     --cn-inset: 6px;
-    --cn-logo: 26px;
+    --cn-logo: 30px;
   }
   .card-nav-wrapper {
     top: 10px !important;
     padding: 0 10px !important;
   }
   .card-nav__menu {
-    padding: 0 8px !important;
+    padding: 0 10px !important;
     gap: 6px !important;
   }
   .card-nav__menu-label {
-    font-size: 12.5px !important;
+    font-size: 13px !important;
   }
   .card-nav__logo img {
-    max-height: 26px !important;
-    max-width: 120px !important;
+    max-height: 30px !important;
+    max-width: 130px !important;
   }
   .card-nav__cta {
-    padding: 0 10px !important;
-    font-size: 11.5px !important;
+    padding: 0 12px !important;
+    font-size: 12px !important;
     gap: 4px !important;
   }
   .card-nav__cards {
@@ -278,9 +289,6 @@
   .card-nav__links {
     flex-direction: column !important;
     gap: 4px !important;
-  }
-  .card-nav__cta--wide {
-    display: none !important; /* Já temos o botão WhatsApp fixado no topo à direita! */
   }
 }
 
