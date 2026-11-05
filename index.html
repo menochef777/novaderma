@@ -2626,6 +2626,7 @@ body {
     }
   }
 </style>
+  <link href="css/card-nav.css" rel="stylesheet">
 </head>
 <body class="light old-hive-theme">
 
@@ -2633,81 +2634,172 @@ body {
 
 <!-- End Google Tag Manager (noscript) -->
 <div class="body-wrapper hs-content-id-191171562870 hs-site-page page">
-<div data-global-resource-path="Cell Theme x HIVE/templates/partials/header.html"><header>
-<a class="header__skip" href="#main-content">Skip to content</a>
-<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_site_header" style="">
-<div class="header header--light header--logo--left header--menu--inline">
-<div class="header__primary">
-<div class="header__row">
-<div class="header__col header__col--logo">
-<div class="header__logo">
-<a class="header-brand-wrap" href="/" title="NovaDerma Clínica Dermatológica">
-  <img src="images/novaderma-logo-darkmode.png" alt="NovaDerma - Clínica Dermatológica" class="header-logo-img" width="160" height="41" fetchpriority="high" />
-</a>
-</div>
-</div>
-<div class="header__col header__nav header__nav--primary">
-<div class="mobile-header-actions">
-  <a class="mobile-cta-btn" href="https://wa.me/5583981466894?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20NovaDerma.">Agendar</a>
-  <button class="mobile-menu-btn" onclick="document.querySelector('.header').classList.toggle('active')" aria-label="Abrir Menu">
-    <i class="fas fa-bars"></i>
-  </button>
-</div>
-<i class="fas fa-bars"></i>
-<i class="fas fa-times"></i>
-<div class="header__nav--primary-wrap">
-<ul class="primary-nav">
-<li aria-role="none" class="hs-menu-item hs-menu-depth-1">
-<a aria-role="menuitem" class="menu-item" href="#sobre">A Clínica</a></li>
-<li aria-role="none" class="hs-menu-item hs-menu-depth-1">
-<a aria-role="menuitem" class="menu-item" href="#especialistas">Especialistas</a></li>
-<li aria-haspopup="true" aria-role="none" class="hs-menu-item hs-menu-depth-1 hs-item-has-children">
-<a aria-role="menuitem" class="menu-item" href="dermatologia-clinica.html">Tratamentos</a><i class="fas fa-caret-down"></i>
-<ul aria-role="menu" class="hs-menu-children-wrapper">
-<li aria-role="none" class="hs-menu-item hs-menu-depth-2">
-<a aria-role="menuitem" class="menu-item" href="dermatologia-clinica.html">Dermatologia Clínica &amp; Cirúrgica</a></li>
-<li aria-role="none" class="hs-menu-item hs-menu-depth-2">
-<a aria-role="menuitem" class="menu-item" href="injetaveis-bioestimuladores.html">Injetáveis &amp; Bioestimuladores</a></li>
-<li aria-role="none" class="hs-menu-item hs-menu-depth-2">
-<a aria-role="menuitem" class="menu-item" href="ultraformer-mpt.html">Ultraformer MPT (Lifting)</a></li>
-<li aria-role="none" class="hs-menu-item hs-menu-depth-2">
-<a aria-role="menuitem" class="menu-item" href="laser-etherea-mx.html">Laser Etherea MX (Rejuvenescimento)</a></li>
-</ul></li>
-<li aria-role="none" class="hs-menu-item hs-menu-depth-1">
-<a aria-role="menuitem" class="menu-item" href="#faq-accordion-title">FAQ</a></li>
-<li aria-role="none" class="hs-menu-item hs-menu-depth-1">
-<a aria-role="menuitem" class="menu-item" href="https://www.instagram.com/clinicanovaderma/">Blog</a></li>
-<li aria-role="none" class="hs-menu-item hs-menu-depth-1">
-<a aria-role="menuitem" class="menu-item" href="https://wa.me/5583981466894?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20NovaDerma.">Contato</a></li>
-<li aria-role="none" class="hs-menu-item hs-menu-depth-1">
-<a aria-role="menuitem" class="menu-item" href="https://wa.me/5583981466894?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20NovaDerma."><span class="button button--secondary button-nav">Agendar Consulta</span></a></li>
+<!-- REACT BITS - CARD NAV LUXURY GLASS NAVBAR -->
+<div class="card-nav-wrapper">
+  <div class="card-nav" id="mainCardNav">
+    <nav class="card-nav__panel" id="cardNavPanel" aria-label="Navegação Principal">
+      <div class="card-nav__bar">
+        <button type="button" class="card-nav__menu" id="cardNavMenuBtn" aria-expanded="false" aria-label="Abrir Menu">
+          <span class="card-nav__burger" aria-hidden="true">
+            <span class="card-nav__line card-nav__line--top"></span>
+            <span class="card-nav__line card-nav__line--bottom"></span>
+          </span>
+          <span class="card-nav__menu-label">
+            <span class="card-nav__word card-nav__word--open">Menu</span>
+            <span class="card-nav__word card-nav__word--close">Fechar</span>
+          </span>
+        </button>
 
-<li class="header__search">
-<i class="fas fa-search"></i>
-<div class="hs-search-field">
-<div class="hs-search-field__bar">
-<form action="/hs-search-results">
-<label for="term">Search</label>
-<input aria-label="Search" autocomplete="off" class="hs-search-field__input" name="term" placeholder="help me find..." type="text"/>
-<input name="type" type="hidden" value="SITE_PAGE"/>
-<input name="type" type="hidden" value="LANDING_PAGE"/>
-<input name="type" type="hidden" value="BLOG_POST"/>
-<input name="type" type="hidden" value="LISTING_PAGE"/>
-<input name="type" type="hidden" value="KNOWLEDGE_ARTICLE"/>
-<button aria-label="Search"><span class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" data-hs-cos-general-type="widget" data-hs-cos-type="icon" id="hs_cos_wrapper_site_header_" style=""><svg aria-hidden="true" version="1.0" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="search1_layer"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></g></svg></span></button>
-</form>
+        <a href="/" class="card-nav__logo" aria-label="NovaDerma Clínica Dermatológica">
+          <img src="images/novaderma-logo-darkmode.png" alt="NovaDerma - Clínica Dermatológica" fetchpriority="high" />
+        </a>
+
+        <a href="https://wa.me/5583981466894?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20NovaDerma." class="card-nav__cta" target="_blank" rel="noopener">
+          Agendar Consulta
+        </a>
+      </div>
+
+      <div class="card-nav__content" id="cardNavContent" aria-hidden="true">
+        <div class="card-nav__cards">
+          <!-- CARD 1: A CLÍNICA -->
+          <div class="card-nav__card">
+            <div class="card-nav__card-head">
+              <span class="card-nav__label">A Clínica</span>
+              <p class="card-nav__description">Medicina dermatológica e dermatologia com alma em Manaíra.</p>
+            </div>
+            <ul class="card-nav__links">
+              <li>
+                <a href="#sobre" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Nossa História &amp; Espaço
+                </a>
+              </li>
+              <li>
+                <a href="#especialistas" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Corpo Clínico (Dr. André &amp; Dra. Aline)
+                </a>
+              </li>
+              <li>
+                <a href="#convenios" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Convênios &amp; Reembolso
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CARD 2: TRATAMENTOS -->
+          <div class="card-nav__card">
+            <div class="card-nav__card-head">
+              <span class="card-nav__label">Tratamentos</span>
+              <p class="card-nav__description">Tecnologias padrão ouro e protocolos médicos individualizados.</p>
+            </div>
+            <ul class="card-nav__links">
+              <li>
+                <a href="dermatologia-clinica.html" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Dermatologia Clínica &amp; Cirúrgica
+                </a>
+              </li>
+              <li>
+                <a href="injetaveis-bioestimuladores.html" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Injetáveis &amp; Bioestimuladores
+                </a>
+              </li>
+              <li>
+                <a href="ultraformer-mpt.html" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Ultraformer MPT (Lifting Não Cirúrgico)
+                </a>
+              </li>
+              <li>
+                <a href="laser-etherea-mx.html" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Laser Etherea MX
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CARD 3: ATENDIMENTO -->
+          <div class="card-nav__card">
+            <div class="card-nav__card-head">
+              <span class="card-nav__label">Atendimento</span>
+              <p class="card-nav__description">Canais diretos, localização e dúvidas frequentes.</p>
+            </div>
+            <ul class="card-nav__links">
+              <li>
+                <a href="#faq-accordion-title" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Dúvidas Frequentes (FAQ)
+                </a>
+              </li>
+              <li>
+                <a href="#shino-testimonials" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Avaliações dos Pacientes
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/clinicanovaderma/" target="_blank" rel="noopener" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Instagram Oficial
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/5583981466894?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20NovaDerma." target="_blank" rel="noopener" class="card-nav__link">
+                  <span class="card-nav__arrow" aria-hidden="true">
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--out" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <svg class="card-nav__arrow-icon card-nav__arrow-icon--in" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </span>
+                  Falar no WhatsApp
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://wa.me/5583981466894?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20NovaDerma." class="card-nav__cta card-nav__cta--wide" target="_blank" rel="noopener">
+          Agendar Consulta
+        </a>
+      </div>
+
+      <span class="card-nav__rim"></span>
+    </nav>
+  </div>
 </div>
-<ul class="hs-search-field__suggestions"></ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header></div>
 <main class="body-container-wrapper" id="main-content">
 <div class="container-fluid body-container body-container--inner">
 <div class="row-fluid-wrapper">
@@ -3318,12 +3410,18 @@ body {
     </div>
 
     <!-- SETINHAS BRANCAS DE VIDRO EMBAIXO DOS CARDS -->
-    <div class="treatments-bottom-controls">
-      <button id="treatmentsPrevBtn" class="glass-arrow-btn" aria-label="Ver Tratamento Anterior">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00152C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    <div class="treatments-bottom-controls" style="display: flex !important; align-items: center !important; justify-content: center !important; gap: 12px !important; margin-top: 22px !important; width: 100% !important;">
+      <button id="treatmentsPrevBtn" class="glass-silver-circle-btn" aria-label="Ver Tratamento Anterior" type="button" style="width: 38px !important; height: 38px !important; min-width: 38px !important; max-width: 38px !important; min-height: 38px !important; max-height: 38px !important; border-radius: 50% !important; background: rgba(255, 255, 255, 0.92) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border: 1px solid rgba(226, 232, 240, 0.9) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1) !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important; padding: 0 !important; margin: 0 !important; outline: none !important; transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1) !important;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#1e293b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: block !important; margin: auto !important; pointer-events: none !important;">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
       </button>
-      <button id="treatmentsNextBtn" class="glass-arrow-btn" aria-label="Ver Próximo Tratamento">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00152C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <button id="treatmentsNextBtn" class="glass-silver-circle-btn" aria-label="Ver Próximo Tratamento" type="button" style="width: 38px !important; height: 38px !important; min-width: 38px !important; max-width: 38px !important; min-height: 38px !important; max-height: 38px !important; border-radius: 50% !important; background: rgba(255, 255, 255, 0.92) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border: 1px solid rgba(226, 232, 240, 0.9) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1) !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important; padding: 0 !important; margin: 0 !important; outline: none !important; transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1) !important;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#1e293b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: block !important; margin: auto !important; pointer-events: none !important;">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
       </button>
     </div>
   </div>
@@ -4410,6 +4508,75 @@ body {
       });
     }
   });
+</script>
+
+
+<script>
+  // REACT BITS CARD NAV CONTROLLER
+  (function() {
+    var root = document.getElementById('mainCardNav');
+    var btn = document.getElementById('cardNavMenuBtn');
+    var panel = document.getElementById('cardNavPanel');
+    var content = document.getElementById('cardNavContent');
+    if (!root || !btn || !panel || !content) return;
+
+    var isOpen = false;
+
+    function toggleMenu(open) {
+      if (typeof open === 'boolean') {
+        isOpen = open;
+      } else {
+        isOpen = !isOpen;
+      }
+
+      if (isOpen) {
+        root.setAttribute('data-open', '');
+        btn.setAttribute('aria-expanded', 'true');
+        content.setAttribute('aria-hidden', 'false');
+        var fullHeight = content.scrollHeight + 60;
+        panel.style.height = fullHeight + 'px';
+      } else {
+        root.removeAttribute('data-open');
+        btn.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-hidden', 'true');
+        panel.style.height = '60px';
+      }
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close on any link click
+    content.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        toggleMenu(false);
+      });
+    });
+
+    // Close on click outside
+    document.addEventListener('pointerdown', function(e) {
+      if (isOpen && !root.contains(e.target)) {
+        toggleMenu(false);
+      }
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && isOpen) {
+        toggleMenu(false);
+        btn.focus();
+      }
+    });
+
+    // Handle resize
+    window.addEventListener('resize', function() {
+      if (isOpen) {
+        panel.style.height = (content.scrollHeight + 60) + 'px';
+      }
+    });
+  })();
 </script>
 
 </body>
